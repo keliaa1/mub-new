@@ -3,14 +3,14 @@ import { CreditCard, Wallet, Landmark, Bitcoin } from 'lucide-react';
 
 const PaymentMarquee = () => {
   const payments = [
-    { name: "Google Pay", logo: "https://cdn.jsdelivr.net/gh/gilbarbara/logos@master/logos/google-pay.svg" },
-    { name: "Apple Pay", logo: "https://cdn.jsdelivr.net/gh/gilbarbara/logos@master/logos/apple-pay.svg" },
-    { name: "MasterCard", logo: "https://cdn.jsdelivr.net/gh/gilbarbara/logos@master/logos/mastercard.svg" },
-    { name: "Visa", logo: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/visa.svg" },
-    { name: "American Express", logo: "https://cdn.jsdelivr.net/gh/gilbarbara/logos@master/logos/amex.svg" },
+    { name: "Google Pay", logo: "https://upload.wikimedia.org/wikipedia/commons/f/f2/Google_Pay_Logo.svg" },
+    { name: "Apple Pay", logo: "https://upload.wikimedia.org/wikipedia/commons/b/b0/Apple_Pay_logo.svg" },
+    { name: "MasterCard", logo: "https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" },
+    { name: "Visa", logo: "https://upload.wikimedia.org/wikipedia/commons/d/d6/Visa_2021.svg" },
+    { name: "American Express", logo: "https://upload.wikimedia.org/wikipedia/commons/f/fa/American_Express_logo_%282018%29.svg" },
     { name: "Diners Club", logo: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/dinersclub.svg" },
     { name: "UnionPay", logo: "https://upload.wikimedia.org/wikipedia/commons/1/1b/UnionPay_logo.svg" },
-    { name: "Chinese/Russian Cards", logo: "https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/mir.svg" },
+    { name: "Chinese/Russian Cards", logo: "https://upload.wikimedia.org/wikipedia/commons/c/c5/Mir_logo.svg" },
     { name: "US Bank Transfer", logo: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/zelle.svg" },
     { name: "Panama Bank Transfer", logo: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/bankofamerica.svg" },
     { name: "USDT", logo: "https://cryptologos.cc/logos/tether-usdt-logo.svg?v=032" },
