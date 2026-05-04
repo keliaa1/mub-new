@@ -10,7 +10,7 @@ const Footer = () => {
   const truckY = useTransform(scrollYProgress, [0, 1], [-50, 150]);
 
   const socialLinks = [
-    { 
+    {
       name: 'Facebook',
       href: "#",
       icon: (props: any) => (
@@ -19,7 +19,7 @@ const Footer = () => {
         </svg>
       )
     },
-    { 
+    {
       name: 'Twitter',
       href: "#",
       icon: (props: any) => (
@@ -28,7 +28,7 @@ const Footer = () => {
         </svg>
       )
     },
-    { 
+    {
       name: 'Instagram',
       href: "#",
       icon: (props: any) => (
@@ -39,7 +39,7 @@ const Footer = () => {
         </svg>
       )
     },
-    { 
+    {
       name: 'Linkedin',
       href: "#",
       icon: (props: any) => (
@@ -55,7 +55,7 @@ const Footer = () => {
   const footerLinks = {
     Company: ['About Us', 'Contact', 'Reviews'],
     Services: ['LLC Formation', 'EIN Registration', 'Registered Agent'],
-    Legal: ['Privacy Policy', 'Terms of Service', 'Cookie Policy']
+    Legal: ['Privacy Policy', 'Terms of Service', 'Payment Policy']
   };
 
   return (
@@ -73,7 +73,7 @@ const Footer = () => {
       </section>
 
       {/* Main Parallax Container */}
-      <section 
+      <section
         ref={containerRef}
         className="h-screen relative overflow-hidden bg-cover bg-center"
         style={{
@@ -92,8 +92,7 @@ const Footer = () => {
             <div className="p-8 md:p-12 flex flex-col md:flex-row justify-between gap-12">
               {/* Logo Area */}
               <div className="flex items-center gap-4">
-                <img src="/logo.webp" alt="My USA Business" className="w-12 h-12" />
-                <span className="text-2xl md:text-3xl font-bold text-white tracking-tighter uppercase">My USA Business</span>
+                <img src="/logo.webp" alt="My USA Business" className="h-16 md:h-20 w-auto object-contain" />
               </div>
 
               {/* Links Area */}
@@ -103,10 +102,10 @@ const Footer = () => {
                     <h4 className="text-white text-xs font-bold uppercase tracking-widest">{category}</h4>
                     <div className="flex flex-col gap-2">
                       {links.map((link) => (
-                        <a 
-                          key={link} 
-                          href="#" 
-                          className="text-gray-400 font-medium text-sm hover:text-orange-500 transition-colors"
+                        <a
+                          key={link}
+                          href="#"
+                          className="text-gray-400 font-medium text-sm hover:text-[#3c3b6e] transition-colors"
                         >
                           {link}
                         </a>
@@ -122,14 +121,14 @@ const Footer = () => {
               <p className="text-sm text-gray-500 font-medium order-2 md:order-1">
                 © 2026 My USA Business. All Rights Reserved
               </p>
-              
+
               {/* Social Icons */}
               <div className="flex gap-4 order-1 md:order-2">
                 {socialLinks.map((item, i) => (
                   <a
                     key={i}
                     href={item.href}
-                    className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-gray-400 hover:bg-orange-500 hover:text-white hover:border-orange-500 transition-all duration-300"
+                    className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-gray-400 hover:bg-[#3c3b6e] hover:text-white hover:border-[#3c3b6e] transition-all duration-300"
                   >
                     <item.icon className="w-5 h-5" />
                   </a>
@@ -140,11 +139,11 @@ const Footer = () => {
         </div>
 
         {/* Background City Parallax Layer */}
-        <motion.div 
+        <motion.div
           style={{ y: truckY }}
           className="absolute inset-x-0 bottom-0 h-full pointer-events-none z-20"
         >
-          <img 
+          <img
             src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80"
             alt="City Skyline"
             className="w-full h-full object-cover origin-bottom opacity-20 scale-125"

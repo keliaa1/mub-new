@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Menu, X, Globe, ChevronDown } from 'lucide-react';
+import { motion } from 'motion/react';
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -14,23 +15,32 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="w-full max-w-7xl mx-auto px-8 py-6 relative z-20">
+    <motion.nav 
+      initial={{ y: -20, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.8 }}
+      className="w-full max-w-7xl mx-auto px-8 py-6 relative z-20"
+    >
       <div className="flex items-center justify-between">
         {/* Logo */}
         <a href="#" className="flex items-center gap-3">
-          <img src="/logo.webp" alt="My USA Business" className="h-8 md:h-10" />
+          <img src="/logo.webp" alt="My USA Business" className="h-10 md:h-12 w-auto object-contain" />
         </a>
 
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center gap-8">
-          {navItems.map((item) => (
-            <a
+          {navItems.map((item, i) => (
+            <motion.a
               key={item.name}
               href={item.href}
-              className="text-gray-300 hover:text-white transition-colors font-medium"
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1 * i + 0.5 }}
+              className="text-gray-300 hover:text-white transition-colors font-medium relative group"
             >
               {item.name}
-            </a>
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#3c3b6e] transition-all group-hover:w-full" />
+            </motion.a>
           ))}
 
           {/* Language Selector Desktop */}
@@ -107,7 +117,7 @@ const Navbar = () => {
           </div>
         </div>
       )}
-    </nav>
+    </motion.nav>
   );
 };
 

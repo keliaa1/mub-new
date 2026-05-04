@@ -1,3 +1,4 @@
+import { motion } from 'motion/react';
 import Navbar from './Navbar';
 
 const Hero = () => {
@@ -20,31 +21,56 @@ const Hero = () => {
 
           <div className="flex-1 flex items-center justify-center">
             <div className="flex flex-col items-center text-center -mt-20 px-4">
-              <span className="text-sm font-semibold text-gray-400 tracking-wider uppercase mb-4">
-                PRIVATE JETS
-              </span>
-
+              <motion.span 
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.6 }}
+                className="text-sm font-semibold text-white tracking-wider uppercase mb-4 px-4 py-1 bg-[#3c3b6e] rounded-full border border-white/10"
+              >
+                Global Business Solutions
+              </motion.span>
+              
               <div className="flex flex-col items-center">
-                <h1 className="text-6xl md:text-7xl lg:text-8xl font-normal text-gray-400 leading-none tracking-tighter">
-                  Premium.
-                </h1>
-                <h1 className="text-6xl md:text-7xl lg:text-8xl font-normal text-white leading-none tracking-tighter -mt-[12px]">
-                  Accessible.
-                </h1>
+                <motion.h1 
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.8, delay: 0.2 }}
+                  className="text-6xl md:text-7xl lg:text-8xl font-normal text-gray-400 leading-none tracking-tighter"
+                >
+                  Launch Your.
+                </motion.h1>
+                <motion.h1 
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.8, delay: 0.4 }}
+                  className="text-6xl md:text-7xl lg:text-8xl font-normal text-white leading-none tracking-tighter -mt-[12px]"
+                >
+                  US Dream.
+                </motion.h1>
               </div>
-
-              <p className="text-lg md:text-xl text-gray-400 mt-2 mb-8 max-w-2xl">
-                Your dedication deserves recognition.
-              </p>
-
-              <div className="flex items-center gap-4">
-                <button className="px-8 py-3 rounded-full border border-white/20 text-white font-medium hover:bg-white/10 transition-all">
-                  Discover
+              
+              <motion.p 
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 1, delay: 0.8 }}
+                className="text-lg md:text-xl text-gray-400 mt-6 mb-10 max-w-2xl"
+              >
+                The easiest way for non-residents to start and manage a business in the United States. LLC formation, EIN, and compliance—all in one place.
+              </motion.p>
+              
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 1.2 }}
+                className="flex flex-col sm:flex-row items-center gap-4"
+              >
+                <button className="w-full sm:w-auto px-10 py-4 rounded-full text-white bg-[#3c3b6e] hover:bg-[#4c4b8e] transition-all font-bold shadow-lg shadow-[#3c3b6e]/20 hover:scale-105 active:scale-95">
+                  Start Your Business
                 </button>
-                <button className="px-8 py-3 rounded-full text-[#0B0D0F] bg-white hover:bg-gray-200 transition-all font-medium shadow-lg shadow-white/5">
-                  Book Now
+                <button className="w-full sm:w-auto px-10 py-4 rounded-full border border-white/20 text-white font-medium hover:bg-white/10 transition-all">
+                  How It Works
                 </button>
-              </div>
+              </motion.div>
             </div>
           </div>
         </div>

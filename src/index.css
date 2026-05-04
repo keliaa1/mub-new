@@ -2,6 +2,28 @@
 
 @theme {
   --font-inter: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --color-brand-blue: #3c3b6e;
+  --color-brand-blue-light: #4c4b8e;
+
+  --animate-marquee: marquee var(--duration, 40s) linear infinite;
+  --animate-marquee-vertical: marquee-vertical var(--duration, 40s) linear infinite;
+
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(calc(-100% - var(--gap, 1rem)));
+    }
+  }
+  @keyframes marquee-vertical {
+    from {
+      transform: translateY(0);
+    }
+    to {
+      transform: translateY(calc(-100% - var(--gap, 1rem)));
+    }
+  }
 }
 
 :root {
