@@ -47,6 +47,20 @@ const translations: Record<Language, Record<string, string>> = {
     // Payment Marquee
     'payment.title': 'Accepted Payment Methods',
     
+    // Pricing
+    'pricing.title': 'Plans & Pricing',
+    'pricing.subtitle': 'Transparent offshore solutions with zero hidden costs.',
+    'pricing.badge': 'Executive Pro',
+    'pricing.tag': 'Most Popular',
+    'pricing.sub': 'Full Asset Protection. Global Enterprises.',
+    'pricing.price': '$4,900',
+    'pricing.period': '/ONE-TIME',
+    'pricing.feature1': 'Everything in Standard',
+    'pricing.feature2': 'Nominee Directors',
+    'pricing.feature3': 'Banking Intro',
+    'pricing.feature4': 'Full Digital Kit',
+    'pricing.cta': 'View Plan',
+
     // Footer
     'footer.rights': 'All rights reserved.',
   },
@@ -78,6 +92,20 @@ const translations: Record<Language, Record<string, string>> = {
     // Payment Marquee
     'payment.title': 'Métodos de Pago Aceptados',
     
+    // Pricing
+    'pricing.title': 'Planes y Precios',
+    'pricing.subtitle': 'Soluciones offshore transparentes sin costos ocultos.',
+    'pricing.badge': 'Ejecutivo Pro',
+    'pricing.tag': 'Más Popular',
+    'pricing.sub': 'Protección total de activos. Empresas Globales.',
+    'pricing.price': '$4,900',
+    'pricing.period': '/ÚNICO PAGO',
+    'pricing.feature1': 'Todo en el Estándar',
+    'pricing.feature2': 'Directores Nominales',
+    'pricing.feature3': 'Introducción Bancaria',
+    'pricing.feature4': 'Kit Digital Completo',
+    'pricing.cta': 'Ver Plan',
+
     // Footer
     'footer.rights': 'Todos los derechos reservados.',
   }

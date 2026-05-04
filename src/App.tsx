@@ -1,27 +1,21 @@
-import Hero from './components/Hero'
-import QuickBenefits from './components/QuickBenefits'
-import WhyChooseUs from './components/WhyChooseUs'
-import Benefits from './components/Benefits'
-import Testimonials from './components/Testimonials'
-import Pricing from './components/Pricing'
-import PaymentMarquee from './components/PaymentMarquee'
-import Footer from './components/Footer'
-
-import { SmoothCursor } from './components/SmoothCursor'
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Home from './pages/Home';
+import LLCFormation from './pages/LLCFormation';
+import BankingSupport from './pages/BankingSupport';
+import EINRegistration from './pages/EINRegistration';
 
 function App() {
   return (
-    <main className="min-h-screen">
-      <SmoothCursor />
-      <Hero />
-      <QuickBenefits />
-      <WhyChooseUs />
-      <Benefits />
-      <Testimonials />
-      <Pricing />
-      <PaymentMarquee />
-      <Footer />
-    </main>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/llc-formation" element={<LLCFormation />} />
+        <Route path="/banking-support" element={<BankingSupport />} />
+        <Route path="/ein-registration" element={<EINRegistration />} />
+        {/* Redirect unknown routes to home */}
+        <Route path="*" element={<Home />} />
+      </Routes>
+    </BrowserRouter>
   )
 }
 

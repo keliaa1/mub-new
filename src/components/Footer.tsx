@@ -1,11 +1,16 @@
 import { motion } from 'motion/react';
 import { MapPin } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   const footerLinks = {
     Features: ['LLC Formation', 'EIN Registration', 'Registered Agent', 'Banking Support'],
     Support: ['Help Center', 'FAQ', 'Contact Us', 'Reviews'],
     Legal: ['Privacy Policy', 'Terms of Service', 'Cookies', 'Payment Policy']
+  };
+
+  const slugify = (text: string) => {
+    return text.toLowerCase().replace(/\s+/g, '-');
   };
 
   const FacebookIcon = (props: any) => (
@@ -93,7 +98,7 @@ const Footer = () => {
         {/* Links Section */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 pb-16">
           <div className="lg:col-span-2 flex flex-col gap-6">
-            <img src="/logo.webp" alt="My USA Business" className="h-14 w-auto object-contain self-start" />
+            <Link to="/" className="text-2xl font-bold dark:text-white text-slate-900 tracking-tighter">My USA Business</Link>
             <p className="dark:text-gray-400 text-slate-600 max-w-sm leading-relaxed">
               Empowering international entrepreneurs to launch and manage successful businesses in the United States. Your global partner in corporate formation.
             </p>
@@ -116,9 +121,9 @@ const Footer = () => {
               <ul className="flex flex-col gap-3">
                 {links.map((link) => (
                   <li key={link}>
-                    <a href="#" className="dark:text-gray-400 text-slate-600 hover:text-[#3c3b6e] transition-colors font-medium">
+                    <Link to={`/${slugify(link)}`} className="dark:text-gray-400 text-slate-600 hover:text-[#3c3b6e] transition-colors font-medium">
                       {link}
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -132,8 +137,8 @@ const Footer = () => {
             © 2026 My USA Business. All rights reserved.
           </p>
           <div className="flex gap-8 text-sm dark:text-gray-500 text-slate-500">
-            <a href="#" className="hover:dark:text-white text-slate-900 transition-colors">Security</a>
-            <a href="#" className="hover:dark:text-white text-slate-900 transition-colors">Sitemap</a>
+            <Link to="/security" className="hover:dark:text-white text-slate-900 transition-colors">Security</Link>
+            <Link to="/sitemap" className="hover:dark:text-white text-slate-900 transition-colors">Sitemap</Link>
           </div>
         </div>
       </div>

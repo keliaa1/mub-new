@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 import { Menu, X, Globe, ChevronDown, Home, Info, Shield, CreditCard, Moon, Sun } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { useLanguage } from '../context/LanguageContext';
+import { Link } from 'react-router-dom';
+import { NavHashLink } from 'react-router-hash-link';
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -32,10 +34,10 @@ const Navbar = () => {
   };
 
   const navItems = [
-    { name: t('nav.home'), href: '#', icon: <Home size={18} /> },
-    { name: t('nav.whyChooseUs'), href: '#why-choose-us', icon: <Info size={18} /> },
-    { name: t('nav.benefits'), href: '#benefits', icon: <Shield size={18} /> },
-    { name: t('nav.pricing'), href: '#pricing', icon: <CreditCard size={18} /> },
+    { name: t('nav.home'), href: '/', icon: <Home size={18} /> },
+    { name: t('nav.whyChooseUs'), href: '/#why-choose-us', icon: <Info size={18} /> },
+    { name: t('nav.benefits'), href: '/#benefits', icon: <Shield size={18} /> },
+    { name: t('nav.pricing'), href: '/#pricing', icon: <CreditCard size={18} /> },
   ];
 
   // Prevent scroll when mobile menu is open
@@ -56,24 +58,28 @@ const Navbar = () => {
     >
       <div className="flex items-center justify-between">
         {/* Logo */}
-        <a href="#" className="flex items-center gap-3 z-50">
+        <Link to="/" className="flex items-center gap-3 z-50">
           <img src="/logo.webp" alt="My USA Business" className="h-10 md:h-12 w-auto object-contain" />
-        </a>
+        </Link>
 
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center gap-8 dark:bg-white/5 bg-black/5 backdrop-blur-xl px-8 py-3 rounded-full border dark:border-white/10 border-black/10 shadow-2xl">
           {navItems.map((item, i) => (
-            <motion.a
+            <motion.div
               key={item.name}
-              href={item.href}
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 * i + 0.5 }}
-              className="dark:text-gray-300 text-slate-700 hover:dark:text-white text-slate-900 transition-colors font-medium relative group text-sm"
             >
-              {item.name}
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#3c3b6e] transition-all group-hover:w-full" />
-            </motion.a>
+              <NavHashLink
+                to={item.href}
+                smooth
+                className="dark:text-gray-300 text-slate-700 hover:dark:text-white text-slate-900 transition-colors font-medium relative group text-sm"
+              >
+                {item.name}
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#3c3b6e] transition-all group-hover:w-full" />
+              </NavHashLink>
+            </motion.div>
           ))}
 
           <div className="w-px h-4 dark:bg-white/10 bg-black/10 mx-2" />
@@ -140,20 +146,24 @@ const Navbar = () => {
           >
             <div className="flex flex-col gap-4">
               {navItems.map((item, i) => (
-                <motion.a
+                <motion.div
                   key={item.name}
-                  href={item.href}
                   initial={{ opacity: 0, x: 20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.1 * i }}
-                  className="flex items-center gap-4 p-4 rounded-2xl dark:bg-white/5 bg-black/5 border dark:border-white/5 border-black/5 text-xl font-semibold dark:text-white text-slate-900 hover:bg-[#3c3b6e]/20 hover:border-[#3c3b6e]/50 transition-all"
-                  onClick={() => setIsMobileMenuOpen(false)}
                 >
-                  <span className="p-3 rounded-xl dark:bg-white/5 bg-black/5 text-[#3c3b6e] group-hover:bg-[#3c3b6e] group-hover:dark:text-white text-slate-900 transition-all">
-                    {item.icon}
-                  </span>
-                  {item.name}
-                </motion.a>
+                  <NavHashLink
+                    to={item.href}
+                    smooth
+                    className="flex items-center gap-4 p-4 rounded-2xl dark:bg-white/5 bg-black/5 border dark:border-white/5 border-black/5 text-xl font-semibold dark:text-white text-slate-900 hover:bg-[#3c3b6e]/20 hover:border-[#3c3b6e]/50 transition-all"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    <span className="p-3 rounded-xl dark:bg-white/5 bg-black/5 text-[#3c3b6e] group-hover:bg-[#3c3b6e] group-hover:dark:text-white text-slate-900 transition-all">
+                      {item.icon}
+                    </span>
+                    {item.name}
+                  </NavHashLink>
+                </motion.div>
               ))}
             </div>
 
