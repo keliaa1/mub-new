@@ -25,9 +25,9 @@ const PaymentMarquee = () => {
   const marqueeItems = [...payments, ...payments];
 
   return (
-    <section className="py-12 bg-[#0B0D0F] border-t border-white/5 overflow-hidden">
+    <section className="py-12 dark:bg-[#0B0D0F] bg-slate-50 border-t dark:border-white/5 border-black/5 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 md:px-8 mb-8 text-center">
-        <p className="text-xs font-bold uppercase tracking-[0.3em] text-gray-500">{t('payment.title')}</p>
+        <p className="text-xs font-bold uppercase tracking-[0.3em] dark:text-gray-500 text-slate-500">{t('payment.title')}</p>
       </div>
       
       <div className="relative flex">
@@ -43,14 +43,14 @@ const PaymentMarquee = () => {
           {marqueeItems.map((item, i) => (
             <div 
               key={i} 
-              className="flex items-center gap-4 px-8 py-4 rounded-2xl bg-white/5 border border-white/10 hover:border-[#3c3b6e]/50 transition-all group shrink-0"
+              className="flex items-center gap-4 px-8 py-4 rounded-2xl dark:bg-white/5 bg-black/5 border dark:border-white/10 border-black/10 hover:border-[#3c3b6e]/50 transition-all group shrink-0"
             >
               <img 
                 src={item.logo} 
                 alt={item.name} 
                 className="w-7 h-7 object-contain grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300"
               />
-              <span className="text-gray-400 font-semibold text-sm group-hover:text-white transition-colors">
+              <span className="dark:text-gray-400 text-slate-600 font-semibold text-sm group-hover:dark:text-white text-slate-900 transition-colors">
                 {item.name}
               </span>
             </div>

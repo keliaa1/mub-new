@@ -43,13 +43,13 @@ const Footer = () => {
     { name: 'Linkedin', icon: LinkedinIcon, href: '#' },
   ];
 
-  const miamiMap = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m12!1m3!1d3592.8317765104686!2d-80.19169602381283!3d25.772095677342894!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88d9b69998818817%3A0xc34a6e8f4955f3a0!2s1000%20Brickell%20Ave%2C%20Miami%2C%20FL%2033131%2C%20USA!5e0!3m2!1sen!2s!4v1714810000000!5m2!1sen!2s";
+  const miamiMap = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3592.8317765104686!2d-80.19169602381283!3d25.772095677342894!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88d9b69998818817%3A0xc34a6e8f4955f3a0!2s1000%20Brickell%20Ave%2C%20Miami%2C%20FL%2033131%2C%20USA!5e0!3m2!1sen!2sus!4v1715012345678!5m2!1sen!2sus";
 
   return (
-    <footer className="bg-[#0B0D0F] pt-24 pb-12 overflow-hidden">
+    <footer className="dark:bg-[#0B0D0F] bg-slate-50 pt-24 pb-12 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 md:px-8">
         {/* Main Office Card */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -57,7 +57,7 @@ const Footer = () => {
         >
           {/* Subtle Background Pattern */}
           <div className="absolute inset-0 opacity-10 pointer-events-none">
-            <div className="absolute top-0 right-0 w-96 h-96 bg-white/20 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl" />
+            <div className="absolute top-0 right-0 w-96 h-96 dark:bg-white/20 bg-black/20 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl" />
           </div>
 
           <div className="flex-1 text-center lg:text-left z-10">
@@ -76,7 +76,7 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className="w-full lg:w-[450px] h-[300px] rounded-3xl overflow-hidden shadow-2xl z-10 border-4 border-white/10">
+          <div className="w-full lg:w-[450px] h-[300px] rounded-3xl overflow-hidden shadow-2xl z-10 border-4 dark:border-white/10 border-black/10">
             <iframe
               src={miamiMap}
               width="100%"
@@ -94,15 +94,15 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 pb-16">
           <div className="lg:col-span-2 flex flex-col gap-6">
             <img src="/logo.webp" alt="My USA Business" className="h-14 w-auto object-contain self-start" />
-            <p className="text-gray-400 max-w-sm leading-relaxed">
+            <p className="dark:text-gray-400 text-slate-600 max-w-sm leading-relaxed">
               Empowering international entrepreneurs to launch and manage successful businesses in the United States. Your global partner in corporate formation.
             </p>
             <div className="flex gap-4">
               {socialLinks.map((social) => (
-                <a 
-                  key={social.name} 
+                <a
+                  key={social.name}
                   href={social.href}
-                  className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:bg-[#3c3b6e] hover:text-white hover:border-[#3c3b6e] transition-all"
+                  className="w-10 h-10 rounded-xl dark:bg-white/5 bg-black/5 border dark:border-white/10 border-black/10 flex items-center justify-center dark:text-gray-400 text-slate-600 hover:bg-[#3c3b6e] hover:dark:text-white text-slate-900 hover:border-[#3c3b6e] transition-all"
                 >
                   <social.icon className="w-5 h-5" />
                 </a>
@@ -112,11 +112,11 @@ const Footer = () => {
 
           {Object.entries(footerLinks).map(([category, links]) => (
             <div key={category} className="flex flex-col gap-6">
-              <h4 className="text-white font-bold text-lg">{category}</h4>
+              <h4 className="dark:text-white text-slate-900 font-bold text-lg">{category}</h4>
               <ul className="flex flex-col gap-3">
                 {links.map((link) => (
                   <li key={link}>
-                    <a href="#" className="text-gray-400 hover:text-[#3c3b6e] transition-colors font-medium">
+                    <a href="#" className="dark:text-gray-400 text-slate-600 hover:text-[#3c3b6e] transition-colors font-medium">
                       {link}
                     </a>
                   </li>
@@ -127,13 +127,13 @@ const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-gray-500 text-sm">
+        <div className="pt-8 border-t dark:border-white/5 border-black/5 flex flex-col md:flex-row justify-between items-center gap-4">
+          <p className="dark:text-gray-500 text-slate-500 text-sm">
             © 2026 My USA Business. All rights reserved.
           </p>
-          <div className="flex gap-8 text-sm text-gray-500">
-            <a href="#" className="hover:text-white transition-colors">Security</a>
-            <a href="#" className="hover:text-white transition-colors">Sitemap</a>
+          <div className="flex gap-8 text-sm dark:text-gray-500 text-slate-500">
+            <a href="#" className="hover:dark:text-white text-slate-900 transition-colors">Security</a>
+            <a href="#" className="hover:dark:text-white text-slate-900 transition-colors">Sitemap</a>
           </div>
         </div>
       </div>

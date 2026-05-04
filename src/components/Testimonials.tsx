@@ -55,29 +55,29 @@ const ReviewCard = ({
 }) => {
   return (
     <figure
-      className="relative w-80 cursor-pointer overflow-hidden rounded-2xl border p-6 bg-white/5 border-white/10 hover:bg-white/10 transition-colors"
+      className="relative w-80 cursor-pointer overflow-hidden rounded-2xl border p-6 dark:bg-white/5 bg-black/5 dark:border-white/10 border-black/10 hover:dark:bg-white/10 bg-black/10 transition-colors"
     >
       <div className="flex flex-row items-center gap-4">
         <img className="rounded-full object-cover border border-[#3c3b6e]/30" width="48" height="48" alt="" src={img} />
         <div className="flex flex-col">
-          <figcaption className="text-sm font-semibold text-white">
+          <figcaption className="text-sm font-semibold dark:text-white text-slate-900">
             {name}
           </figcaption>
           <p className="text-xs font-medium text-[#3c3b6e]">{business}</p>
         </div>
       </div>
-      <blockquote className="mt-4 text-sm text-gray-300 leading-relaxed italic">"{body}"</blockquote>
+      <blockquote className="mt-4 text-sm dark:text-gray-300 text-slate-700 leading-relaxed italic">"{body}"</blockquote>
     </figure>
   );
 };
 
 const Testimonials = () => {
   return (
-    <section className="py-24 bg-[#121417] overflow-hidden">
+    <section className="py-24 dark:bg-[#121417] bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 md:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-sm font-semibold text-gray-400 tracking-wider uppercase mb-3">Testimonials</h2>
-          <h3 className="text-4xl md:text-5xl font-normal text-white tracking-tight">Trusted by Founders Worldwide</h3>
+          <h2 className="text-sm font-semibold dark:text-gray-400 text-slate-600 tracking-wider uppercase mb-3">Testimonials</h2>
+          <h3 className="text-4xl md:text-5xl font-normal dark:text-white text-slate-900 tracking-tight">Trusted by Founders Worldwide</h3>
         </div>
 
         <div className="relative flex w-full flex-col items-center justify-center overflow-hidden">
@@ -93,8 +93,8 @@ const Testimonials = () => {
           </Marquee>
           
           {/* Gradient Overlays */}
-          <div className="pointer-events-none absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-[#121417] to-transparent"></div>
-          <div className="pointer-events-none absolute inset-y-0 right-0 w-1/3 bg-gradient-to-l from-[#121417] to-transparent"></div>
+          <div className="pointer-events-none absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r dark:from-[#121417] from-white to-transparent"></div>
+          <div className="pointer-events-none absolute inset-y-0 right-0 w-1/3 bg-gradient-to-l dark:from-[#121417] from-white to-transparent"></div>
         </div>
       </div>
     </section>

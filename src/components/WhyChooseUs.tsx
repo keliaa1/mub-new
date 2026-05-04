@@ -36,20 +36,20 @@ const notifications = [
 
 const Notification = ({ name, description, icon, color, time }: any) => {
   return (
-    <div className="flex w-full items-center gap-4 rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur-sm hover:bg-white/10 transition-colors">
-      <div 
+    <div className="flex w-full items-center gap-4 rounded-2xl border dark:border-white/10 border-black/10 dark:bg-white/5 bg-black/5 p-4 backdrop-blur-sm hover:dark:bg-white/10 bg-black/10 transition-colors">
+      <div
         className="flex h-10 w-10 items-center justify-center rounded-xl shadow-lg"
         style={{ backgroundColor: color }}
       >
         {icon}
       </div>
       <div className="flex flex-col overflow-hidden">
-        <div className="flex flex-row items-center whitespace-pre text-lg font-medium text-white">
+        <div className="flex flex-row items-center whitespace-pre text-lg font-medium dark:text-white text-slate-900">
           <span className="text-sm sm:text-base">{name}</span>
           <span className="mx-1">·</span>
-          <span className="text-xs text-gray-500">{time}</span>
+          <span className="text-xs dark:text-gray-500 text-slate-500">{time}</span>
         </div>
-        <p className="text-xs sm:text-sm text-gray-400">
+        <p className="text-xs sm:text-sm dark:text-gray-400 text-slate-600">
           {description}
         </p>
       </div>
@@ -62,43 +62,43 @@ const WhyChooseUs = () => {
   const isInView = useInView(containerRef, { once: true, amount: 0.3 });
 
   return (
-    <section id="why-choose-us" ref={containerRef} className="py-24 bg-[#0B0D0F]">
+    <section id="why-choose-us" ref={containerRef} className="py-24 dark:bg-[#0B0D0F] bg-slate-50">
       <div className="max-w-7xl mx-auto px-6 md:px-8">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
-          
+
           {/* Left Side: Image */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="relative h-[600px] rounded-3xl overflow-hidden border border-white/5 group"
+            className="relative h-[600px] rounded-3xl overflow-hidden border dark:border-white/5 border-black/5 group"
           >
-            <img 
-              src="https://images.unsplash.com/photo-1543269865-cbf427effbad?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" 
+            <img
+              src="https://images.unsplash.com/photo-1543269865-cbf427effbad?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
               alt="Business partners shaking hands"
               className="w-full h-full object-cover grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-[#0B0D0F] via-transparent to-transparent opacity-60" />
-            
+
             <div className="absolute bottom-8 left-8">
-              <h4 className="text-2xl font-bold text-white mb-2">Trusted Partnerships</h4>
-              <p className="text-gray-400 max-w-sm">We've helped over 5,000 founders from 120+ countries launch their US dream successfully.</p>
+              <h4 className="text-2xl font-bold dark:text-white text-slate-900 mb-2">Trusted Partnerships</h4>
+              <p className="dark:text-gray-400 text-white max-w-sm">We've helped over 5,000 founders from 120+ countries launch their US dream successfully.</p>
             </div>
           </motion.div>
 
           {/* Right Side: Animated List */}
           <div className="flex flex-col">
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               className="mb-12"
             >
               <h2 className="text-sm font-semibold text-[#3c3b6e] tracking-wider uppercase mb-3">Our Expertise</h2>
-              <h3 className="text-4xl md:text-5xl font-normal text-white tracking-tight leading-tight">
-                Why Founders Choose <br /> 
-                <span className="text-white font-bold">My USA Business</span>
+              <h3 className="text-4xl md:text-5xl font-normal dark:text-white text-slate-900 tracking-tight leading-tight">
+                Why Founders Choose <br />
+                <span className="dark:text-white text-slate-900 font-bold">My USA Business</span>
               </h3>
             </motion.div>
 
@@ -108,7 +108,7 @@ const WhyChooseUs = () => {
                   <Notification {...item} key={idx} />
                 ))}
               </AnimatedList>
-              
+
               {/* Subtle background glow */}
               <div className="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-[#3c3b6e]/10 blur-[100px] rounded-full" />
             </div>
