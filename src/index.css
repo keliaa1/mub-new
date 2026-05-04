@@ -1,0 +1,16 @@
+@import "tailwindcss";
+
+@theme {
+  --font-inter: "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+:root {
+  font-family: var(--font-inter);
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+  background-color: #0B0D0F;
+  color: #F9FAFB;
+}
