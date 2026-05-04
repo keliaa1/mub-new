@@ -83,12 +83,12 @@ const Testimonials = () => {
         <div className="relative flex w-full flex-col items-center justify-center overflow-hidden">
           <Marquee pauseOnHover className="[--duration:30s]">
             {firstRow.map((review) => (
-              <ReviewCard key={review.username} {...review} />
+              <ReviewCard key={review.name} {...review} />
             ))}
           </Marquee>
           <Marquee reverse pauseOnHover className="[--duration:35s]">
             {secondRow.map((review) => (
-              <ReviewCard key={review.username} {...review} />
+              <ReviewCard key={review.name} {...review} />
             ))}
           </Marquee>
           

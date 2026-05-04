@@ -1,7 +1,7 @@
 import { useRef } from 'react';
 import { motion, useInView } from 'motion/react';
 import { AnimatedList } from './AnimatedList';
-import { Shield, Zap, Globe, Clock, CheckCircle2 } from 'lucide-react';
+import { Shield, Zap, Globe, CheckCircle2 } from 'lucide-react';
 
 const notifications = [
   {

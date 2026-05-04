@@ -1,7 +1,9 @@
 import { motion } from 'motion/react';
-import { CreditCard, Wallet, Landmark, Bitcoin } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 
 const PaymentMarquee = () => {
+  const { t } = useLanguage();
+  
   const payments = [
     { name: "Google Pay", logo: "https://upload.wikimedia.org/wikipedia/commons/f/f2/Google_Pay_Logo.svg" },
     { name: "Apple Pay", logo: "https://upload.wikimedia.org/wikipedia/commons/b/b0/Apple_Pay_logo.svg" },
@@ -10,7 +12,7 @@ const PaymentMarquee = () => {
     { name: "American Express", logo: "https://upload.wikimedia.org/wikipedia/commons/f/fa/American_Express_logo_%282018%29.svg" },
     { name: "Diners Club", logo: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/dinersclub.svg" },
     { name: "UnionPay", logo: "https://upload.wikimedia.org/wikipedia/commons/1/1b/UnionPay_logo.svg" },
-    { name: "Chinese/Russian Cards", logo: "https://upload.wikimedia.org/wikipedia/commons/c/c5/Mir_logo.svg" },
+    { name: "Chinese/Russian Cards", logo: "https://upload.wikimedia.org/wikipedia/commons/b/b9/Mir-logo.svg" },
     { name: "US Bank Transfer", logo: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/zelle.svg" },
     { name: "Panama Bank Transfer", logo: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/bankofamerica.svg" },
     { name: "USDT", logo: "https://cryptologos.cc/logos/tether-usdt-logo.svg?v=032" },
@@ -25,7 +27,7 @@ const PaymentMarquee = () => {
   return (
     <section className="py-12 bg-[#0B0D0F] border-t border-white/5 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 md:px-8 mb-8 text-center">
-        <p className="text-xs font-bold uppercase tracking-[0.3em] text-gray-500">Accepted Payment Methods</p>
+        <p className="text-xs font-bold uppercase tracking-[0.3em] text-gray-500">{t('payment.title')}</p>
       </div>
       
       <div className="relative flex">

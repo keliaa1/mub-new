@@ -1,7 +1,10 @@
 import { motion } from 'motion/react';
 import Navbar from './Navbar';
+import { useLanguage } from '../context/LanguageContext';
 
 const Hero = () => {
+  const { t } = useLanguage();
+
   return (
     <div className="min-h-screen bg-[#0B0D0F]">
       <section className="relative h-screen overflow-hidden">
@@ -27,7 +30,7 @@ const Hero = () => {
                 transition={{ duration: 0.6 }}
                 className="text-sm font-semibold text-white tracking-wider uppercase mb-4 px-4 py-1 bg-[#3c3b6e] rounded-full border border-white/10"
               >
-                Global Business Solutions
+                {t('hero.badge')}
               </motion.span>
               
               <div className="flex flex-col items-center">
@@ -37,7 +40,7 @@ const Hero = () => {
                   transition={{ duration: 0.8, delay: 0.2 }}
                   className="text-6xl md:text-7xl lg:text-8xl font-normal text-gray-400 leading-none tracking-tighter"
                 >
-                  Launch Your.
+                  {t('hero.title1')}
                 </motion.h1>
                 <motion.h1 
                   initial={{ opacity: 0, x: 20 }}
@@ -45,7 +48,7 @@ const Hero = () => {
                   transition={{ duration: 0.8, delay: 0.4 }}
                   className="text-6xl md:text-7xl lg:text-8xl font-normal text-white leading-none tracking-tighter -mt-[12px]"
                 >
-                  US Dream.
+                  {t('hero.title2')}
                 </motion.h1>
               </div>
               
@@ -55,7 +58,7 @@ const Hero = () => {
                 transition={{ duration: 1, delay: 0.8 }}
                 className="text-lg md:text-xl text-gray-400 mt-6 mb-10 max-w-2xl"
               >
-                The easiest way for non-residents to start and manage a business in the United States. LLC formation, EIN, and compliance—all in one place.
+                {t('hero.desc')}
               </motion.p>
               
               <motion.div 
@@ -65,10 +68,10 @@ const Hero = () => {
                 className="flex flex-col sm:flex-row items-center gap-4"
               >
                 <button className="w-full sm:w-auto px-10 py-4 rounded-full text-white bg-[#3c3b6e] hover:bg-[#4c4b8e] transition-all font-bold shadow-lg shadow-[#3c3b6e]/20 hover:scale-105 active:scale-95">
-                  Start Your Business
+                  {t('hero.btn1')}
                 </button>
                 <button className="w-full sm:w-auto px-10 py-4 rounded-full border border-white/20 text-white font-medium hover:bg-white/10 transition-all">
-                  How It Works
+                  {t('hero.btn2')}
                 </button>
               </motion.div>
             </div>

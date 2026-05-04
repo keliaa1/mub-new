@@ -1,156 +1,143 @@
-import { motion, useScroll, useTransform } from 'motion/react';
-import { useRef } from 'react';
+import { motion } from 'motion/react';
+import { MapPin } from 'lucide-react';
+
 const Footer = () => {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start end", "end start"]
-  });
-
-  const truckY = useTransform(scrollYProgress, [0, 1], [-50, 150]);
-
-  const socialLinks = [
-    {
-      name: 'Facebook',
-      href: "#",
-      icon: (props: any) => (
-        <svg {...props} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
-        </svg>
-      )
-    },
-    {
-      name: 'Twitter',
-      href: "#",
-      icon: (props: any) => (
-        <svg {...props} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z" />
-        </svg>
-      )
-    },
-    {
-      name: 'Instagram',
-      href: "#",
-      icon: (props: any) => (
-        <svg {...props} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
-          <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-          <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
-        </svg>
-      )
-    },
-    {
-      name: 'Linkedin',
-      href: "#",
-      icon: (props: any) => (
-        <svg {...props} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
-          <rect width="4" height="12" x="2" y="9" />
-          <circle cx="4" cy="4" r="2" />
-        </svg>
-      )
-    }
-  ];
-
   const footerLinks = {
-    Company: ['About Us', 'Contact', 'Reviews'],
-    Services: ['LLC Formation', 'EIN Registration', 'Registered Agent'],
-    Legal: ['Privacy Policy', 'Terms of Service', 'Payment Policy']
+    Features: ['LLC Formation', 'EIN Registration', 'Registered Agent', 'Banking Support'],
+    Support: ['Help Center', 'FAQ', 'Contact Us', 'Reviews'],
+    Legal: ['Privacy Policy', 'Terms of Service', 'Cookies', 'Payment Policy']
   };
 
+  const FacebookIcon = (props: any) => (
+    <svg {...props} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+    </svg>
+  );
+
+  const TwitterIcon = (props: any) => (
+    <svg {...props} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z" />
+    </svg>
+  );
+
+  const InstagramIcon = (props: any) => (
+    <svg {...props} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+      <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+    </svg>
+  );
+
+  const LinkedinIcon = (props: any) => (
+    <svg {...props} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+      <rect width="4" height="12" x="2" y="9" />
+      <circle cx="4" cy="4" r="2" />
+    </svg>
+  );
+
+  const socialLinks = [
+    { name: 'Instagram', icon: InstagramIcon, href: '#' },
+    { name: 'Facebook', icon: FacebookIcon, href: '#' },
+    { name: 'Twitter', icon: TwitterIcon, href: '#' },
+    { name: 'Linkedin', icon: LinkedinIcon, href: '#' },
+  ];
+
+  const miamiMap = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m12!1m3!1d3592.8317765104686!2d-80.19169602381283!3d25.772095677342894!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88d9b69998818817%3A0xc34a6e8f4955f3a0!2s1000%20Brickell%20Ave%2C%20Miami%2C%20FL%2033131%2C%20USA!5e0!3m2!1sen!2s!4v1714810000000!5m2!1sen!2s";
+
   return (
-    <div className="bg-[#0B0D0F]">
-      {/* Top Spacer Section */}
-      <section className="h-[50vh] md:h-[30vh] bg-[#121417] flex items-center justify-center">
-        <motion.span
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 1 }}
-          className="text-white/30 text-[10px] font-bold uppercase tracking-[0.5em]"
+    <footer className="bg-[#0B0D0F] pt-24 pb-12 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-6 md:px-8">
+        {/* Main Office Card */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="bg-[#3c3b6e] rounded-[40px] p-8 md:p-16 flex flex-col lg:flex-row items-center gap-12 mb-24 relative overflow-hidden"
         >
-          Your Global Partner
-        </motion.span>
-      </section>
+          {/* Subtle Background Pattern */}
+          <div className="absolute inset-0 opacity-10 pointer-events-none">
+            <div className="absolute top-0 right-0 w-96 h-96 bg-white/20 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl" />
+          </div>
 
-      {/* Main Parallax Container */}
-      <section
-        ref={containerRef}
-        className="h-screen relative overflow-hidden bg-cover bg-center"
-        style={{
-          backgroundImage: `url('https://images.unsplash.com/photo-1501446529957-6226bd447c46?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80')`
-        }}
-      >
-        {/* The Top-Aligned Footer Card */}
-        <div className="absolute top-0 w-full pt-12 md:pt-24 px-4 md:px-8 z-30">
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            className="max-w-7xl mx-auto bg-[#0B0D0F]/90 backdrop-blur-md rounded-2xl md:rounded-3xl shadow-2xl overflow-hidden border border-white/5"
-          >
-            {/* Footer Content (Top Half) */}
-            <div className="p-8 md:p-12 flex flex-col md:flex-row justify-between gap-12">
-              {/* Logo Area */}
-              <div className="flex items-center gap-4">
-                <img src="/logo.webp" alt="My USA Business" className="h-16 md:h-20 w-auto object-contain" />
+          <div className="flex-1 text-center lg:text-left z-10">
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
+              Visit our <br />
+              corporate office
+            </h2>
+            <div className="flex flex-col gap-4 text-white/80">
+              <div className="flex items-center justify-center lg:justify-start gap-3">
+                <MapPin className="w-5 h-5 text-white" />
+                <p className="text-lg font-medium">1000 Brickell Ave, Miami, FL 33131, USA</p>
               </div>
-
-              {/* Links Area */}
-              <div className="flex flex-wrap gap-8 md:gap-16">
-                {Object.entries(footerLinks).map(([category, links]) => (
-                  <div key={category} className="flex flex-col gap-4">
-                    <h4 className="text-white text-xs font-bold uppercase tracking-widest">{category}</h4>
-                    <div className="flex flex-col gap-2">
-                      {links.map((link) => (
-                        <a
-                          key={link}
-                          href="#"
-                          className="text-gray-400 font-medium text-sm hover:text-[#3c3b6e] transition-colors"
-                        >
-                          {link}
-                        </a>
-                      ))}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Footer Content (Bottom Bar) */}
-            <div className="bg-[#0B0D0F] px-8 md:px-12 py-6 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-6">
-              <p className="text-sm text-gray-500 font-medium order-2 md:order-1">
-                © 2026 My USA Business. All Rights Reserved
+              <p className="text-sm max-w-md opacity-70">
+                Centrally located in the heart of Miami's financial district. Our team is ready to help you navigate your US business journey.
               </p>
-
-              {/* Social Icons */}
-              <div className="flex gap-4 order-1 md:order-2">
-                {socialLinks.map((item, i) => (
-                  <a
-                    key={i}
-                    href={item.href}
-                    className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-gray-400 hover:bg-[#3c3b6e] hover:text-white hover:border-[#3c3b6e] transition-all duration-300"
-                  >
-                    <item.icon className="w-5 h-5" />
-                  </a>
-                ))}
-              </div>
             </div>
-          </motion.div>
+          </div>
+
+          <div className="w-full lg:w-[450px] h-[300px] rounded-3xl overflow-hidden shadow-2xl z-10 border-4 border-white/10">
+            <iframe
+              src={miamiMap}
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              className="grayscale contrast-125 opacity-90 hover:grayscale-0 transition-all duration-500"
+            />
+          </div>
+        </motion.div>
+
+        {/* Links Section */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 pb-16">
+          <div className="lg:col-span-2 flex flex-col gap-6">
+            <img src="/logo.webp" alt="My USA Business" className="h-14 w-auto object-contain self-start" />
+            <p className="text-gray-400 max-w-sm leading-relaxed">
+              Empowering international entrepreneurs to launch and manage successful businesses in the United States. Your global partner in corporate formation.
+            </p>
+            <div className="flex gap-4">
+              {socialLinks.map((social) => (
+                <a 
+                  key={social.name} 
+                  href={social.href}
+                  className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:bg-[#3c3b6e] hover:text-white hover:border-[#3c3b6e] transition-all"
+                >
+                  <social.icon className="w-5 h-5" />
+                </a>
+              ))}
+            </div>
+          </div>
+
+          {Object.entries(footerLinks).map(([category, links]) => (
+            <div key={category} className="flex flex-col gap-6">
+              <h4 className="text-white font-bold text-lg">{category}</h4>
+              <ul className="flex flex-col gap-3">
+                {links.map((link) => (
+                  <li key={link}>
+                    <a href="#" className="text-gray-400 hover:text-[#3c3b6e] transition-colors font-medium">
+                      {link}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </div>
 
-        {/* Background City Parallax Layer */}
-        <motion.div
-          style={{ y: truckY }}
-          className="absolute inset-x-0 bottom-0 h-full pointer-events-none z-20"
-        >
-          <img
-            src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80"
-            alt="City Skyline"
-            className="w-full h-full object-cover origin-bottom opacity-20 scale-125"
-          />
-        </motion.div>
-      </section>
-    </div>
+        {/* Bottom Bar */}
+        <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
+          <p className="text-gray-500 text-sm">
+            © 2026 My USA Business. All rights reserved.
+          </p>
+          <div className="flex gap-8 text-sm text-gray-500">
+            <a href="#" className="hover:text-white transition-colors">Security</a>
+            <a href="#" className="hover:text-white transition-colors">Sitemap</a>
+          </div>
+        </div>
+      </div>
+    </footer>
   );
 };
 
