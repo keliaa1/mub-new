@@ -15,10 +15,10 @@ const PaymentMarquee = () => {
     { name: "UnionPay", logo: "https://upload.wikimedia.org/wikipedia/commons/1/1b/UnionPay_logo.svg" },
     { name: "US Bank Transfer", logo: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/zelle.svg" },
     { name: "Panama Bank Transfer", logo: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/bankofamerica.svg" },
-    { name: "USDT", logo: "https://cryptologos.cc/logos/tether-usdt-logo.svg?v=032" },
-    { name: "USDC", logo: "https://cryptologos.cc/logos/usd-coin-usdc-logo.svg?v=032" },
-    { name: "BTC", logo: "https://cryptologos.cc/logos/bitcoin-btc-logo.svg?v=032" },
-    { name: "ETH", logo: "https://cryptologos.cc/logos/ethereum-eth-logo.svg?v=032" },
+    { name: "USDT", logo: "https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/tether.svg" },
+    { name: "USDC", logo: "https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/usdcoin.svg" },
+    { name: "BTC", logo: "https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/bitcoin.svg" },
+    { name: "ETH", logo: "https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/ethereum.svg" },
   ];
 
   // Double the list for seamless loop
@@ -48,7 +48,7 @@ const PaymentMarquee = () => {
               <img
                 src={item.logo}
                 alt={item.name}
-                className="w-7 h-7 object-contain grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300"
+                className="w-7 h-7 object-contain transition-all duration-300"
               />
               <span className="dark:text-gray-400 text-slate-600 font-semibold text-sm group-hover:dark:text-white text-slate-900 transition-colors">
                 {item.name}

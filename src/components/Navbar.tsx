@@ -74,7 +74,9 @@ const Navbar = () => {
               <NavHashLink
                 to={item.href}
                 smooth
-                className="dark:text-gray-300 text-slate-700 hover:dark:text-white text-slate-900 transition-colors font-medium relative group text-sm"
+                className={({ isActive }: any) => 
+                  `dark:text-gray-300 text-slate-700 hover:dark:text-white text-slate-900 transition-colors font-medium relative group text-sm ${isActive ? 'text-[#3c3b6e]' : ''}`
+                }
               >
                 {item.name}
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#3c3b6e] transition-all group-hover:w-full" />
@@ -155,7 +157,9 @@ const Navbar = () => {
                   <NavHashLink
                     to={item.href}
                     smooth
-                    className="flex items-center gap-4 p-4 rounded-2xl dark:bg-white/5 bg-black/5 border dark:border-white/5 border-black/5 text-xl font-semibold dark:text-white text-slate-900 hover:bg-[#3c3b6e]/20 hover:border-[#3c3b6e]/50 transition-all"
+                    className={({ isActive }: any) => 
+                      `flex items-center gap-4 p-4 rounded-2xl dark:bg-white/5 bg-black/5 border dark:border-white/5 border-black/5 text-xl font-semibold transition-all ${isActive ? 'bg-[#3c3b6e]/20 border-[#3c3b6e]/50 text-[#3c3b6e] dark:text-white' : 'dark:text-white text-slate-900 hover:bg-[#3c3b6e]/20 hover:border-[#3c3b6e]/50'}`
+                    }
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     <span className="p-3 rounded-xl dark:bg-white/5 bg-black/5 text-[#3c3b6e] group-hover:bg-[#3c3b6e] group-hover:dark:text-white text-slate-900 transition-all">

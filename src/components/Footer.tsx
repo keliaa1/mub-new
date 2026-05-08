@@ -1,4 +1,5 @@
-import { motion } from 'motion/react';
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
 import { MapPin } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
@@ -41,14 +42,29 @@ const Footer = () => {
     </svg>
   );
 
+  const [selectedBranch, setSelectedBranch] = useState<'usa' | 'panama'>('usa');
+
+  const locations = {
+    usa: {
+      name: "USA Branch",
+      address: "1000 Brickell Ave, Miami, FL 33131, USA",
+      map: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3592.8317765104686!2d-80.19169602381283!3d25.772095677342894!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88d9b69998818817%3A0xc34a6e8f4955f3a0!2s1000%20Brickell%20Ave%2C%20Miami%2C%20FL%2033131%2C%20USA!5e0!3m2!1sen!2sus!4v1715012345678!5m2!1sen!2sus",
+      description: "Centrally located in the heart of Miami's financial district. Our team is ready to help you navigate your US business journey."
+    },
+    panama: {
+      name: "Panama Branch",
+      address: "Oceania Business Plaza, Panama City, Panama",
+      map: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3940.906354395893!2d-79.51226892543506!3d8.9807246399427!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8faca91c7834c9bb%3A0xc95b7089e324a79a!2sOceania%20Business%20Center!5e0!3m2!1sen!2srw!4v1715018694000!5m2!1sen!2srw",
+      description: "Our Panama hub in the Oceania Business Plaza serves as our strategic bridge for Latin American founders expanding globally."
+    }
+  };
+
+  const currentOffice = locations[selectedBranch];
+
   const socialLinks = [
     { name: 'Instagram', icon: InstagramIcon, href: '#' },
     { name: 'Facebook', icon: FacebookIcon, href: '#' },
-    { name: 'Twitter', icon: TwitterIcon, href: '#' },
-    { name: 'Linkedin', icon: LinkedinIcon, href: '#' },
   ];
-
-  const miamiMap = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3592.8317765104686!2d-80.19169602381283!3d25.772095677342894!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88d9b69998818817%3A0xc34a6e8f4955f3a0!2s1000%20Brickell%20Ave%2C%20Miami%2C%20FL%2033131%2C%20USA!5e0!3m2!1sen!2sus!4v1715012345678!5m2!1sen!2sus";
 
   return (
     <footer className="dark:bg-[#0B0D0F] bg-slate-50 pt-24 pb-12 overflow-hidden">
@@ -70,28 +86,66 @@ const Footer = () => {
               Visit our <br />
               corporate office
             </h2>
-            <div className="flex flex-col gap-4 text-white/80">
-              <div className="flex items-center justify-center lg:justify-start gap-3">
-                <MapPin className="w-5 h-5 text-white" />
-                <p className="text-lg font-medium">1000 Brickell Ave, Miami, FL 33131, USA</p>
+            <div className="flex flex-col gap-6 text-white/80">
+              <div className="flex gap-2 p-1 bg-white/10 rounded-2xl w-fit mb-2">
+                {(Object.keys(locations) as Array<keyof typeof locations>).map((branch) => (
+                  <button
+                    key={branch}
+                    onClick={() => setSelectedBranch(branch)}
+                    className={`px-6 py-2 rounded-xl text-sm font-bold transition-all ${
+                      selectedBranch === branch 
+                        ? 'bg-white text-[#3c3b6e] shadow-lg' 
+                        : 'text-white hover:bg-white/10'
+                    }`}
+                  >
+                    {locations[branch].name}
+                  </button>
+                ))}
               </div>
-              <p className="text-sm max-w-md opacity-70">
-                Centrally located in the heart of Miami's financial district. Our team is ready to help you navigate your US business journey.
-              </p>
+
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={selectedBranch}
+                  initial={{ opacity: 0, x: -10 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: 10 }}
+                  transition={{ duration: 0.3 }}
+                  className="flex flex-col gap-4"
+                >
+                  <div className="flex items-center justify-center lg:justify-start gap-3">
+                    <MapPin className="w-5 h-5 text-white" />
+                    <p className="text-lg font-medium">{currentOffice.address}</p>
+                  </div>
+                  <p className="text-sm max-w-md opacity-70">
+                    {currentOffice.description}
+                  </p>
+                </motion.div>
+              </AnimatePresence>
             </div>
           </div>
 
-          <div className="w-full lg:w-[450px] h-[300px] rounded-3xl overflow-hidden shadow-2xl z-10 border-4 dark:border-white/10 border-black/10">
-            <iframe
-              src={miamiMap}
-              width="100%"
-              height="100%"
-              style={{ border: 0 }}
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              className="grayscale contrast-125 opacity-90 hover:grayscale-0 transition-all duration-500"
-            />
+          <div className="w-full lg:w-[450px] h-[300px] rounded-3xl overflow-hidden shadow-2xl z-10 border-4 dark:border-white/10 border-black/10 relative">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={selectedBranch}
+                initial={{ opacity: 0, scale: 1.05 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.95 }}
+                transition={{ duration: 0.5 }}
+                className="absolute inset-0"
+              >
+                <iframe
+                  src={currentOffice.map}
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  className="grayscale contrast-125 opacity-90 hover:grayscale-0 transition-all duration-500"
+                />
+              </motion.div>
+            </AnimatePresence>
           </div>
         </motion.div>
 

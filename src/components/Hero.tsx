@@ -22,12 +22,6 @@ const Hero = () => {
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.play().catch(error => {
-        console.log("Video autoplay failed:", error);
-      });
-    }
-
     const handleClickOutside = (event: MouseEvent) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
         setIsStateDropdownOpen(false);
@@ -39,19 +33,30 @@ const Hero = () => {
 
   return (
     <div className="min-h-screen dark:bg-[#0B0D0F] bg-slate-50">
-      <section className="relative h-screen z-20">
-        <div className="absolute inset-0 overflow-hidden">
+      <section className="relative h-screen z-20 overflow-hidden">
+        <motion.div 
+          initial={{ scale: 1.1, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ duration: 1.5, ease: "easeOut" }}
+          className="absolute inset-0 z-0"
+        >
           <video
             ref={videoRef}
             autoPlay
             muted
             loop
             playsInline
-            className="w-full h-full object-cover opacity-60 pointer-events-none"
+            preload="auto"
+            onError={(e) => console.error("Hero video failed to load. Check if /businesshero.mp4 exists in public/", e)}
+            className="w-full h-full object-cover dark:opacity-40 opacity-50 dark:brightness-[0.3] brightness-[0.9] pointer-events-none transition-all duration-1000 bg-slate-900"
           >
-            <source src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260328_091828_e240eb17-6edc-4129-ad9d-98678e3fd238.mp4" type="video/mp4" />
+            <source src="/businesshero.mp4" type="video/mp4" />
           </video>
-        </div>
+          {/* Enhanced Overlays */}
+          <div className="absolute inset-0 bg-black/30 dark:bg-black/50" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/60 dark:from-black/80 dark:to-[#0B0D0F]" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(0,0,0,0.4)_100%)]" />
+        </motion.div>
 
         <div className="relative h-full flex flex-col z-30">
           <Navbar />
@@ -63,7 +68,7 @@ const Hero = () => {
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.6 }}
-                  className="text-sm font-semibold text-white tracking-wider uppercase px-4 py-1 bg-[#3c3b6e] rounded-full border dark:border-white/10 border-black/10"
+                  className="text-sm font-semibold text-white tracking-wider uppercase px-6 py-2 bg-[#3c3b6e]/80 backdrop-blur-md rounded-full border border-white/20 shadow-xl shadow-black/20"
                 >
                   {t('hero.badge')}
                 </motion.span>
@@ -71,18 +76,18 @@ const Hero = () => {
 
               <div className="flex flex-col items-center">
                 <motion.h1
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.2 }}
-                  className="text-6xl md:text-7xl lg:text-8xl font-normal dark:text-gray-400 text-slate-600 leading-none tracking-tighter"
+                  className="text-6xl md:text-7xl lg:text-9xl font-normal dark:text-white/70 text-slate-100/80 leading-none tracking-tighter drop-shadow-2xl"
                 >
                   {t('hero.title1')}
                 </motion.h1>
                 <motion.h1
-                  initial={{ opacity: 0, x: 20 }}
-                  animate={{ opacity: 1, x: 0 }}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.4 }}
-                  className="text-6xl md:text-7xl lg:text-8xl font-normal dark:text-white text-slate-900 leading-none tracking-tighter -mt-[12px]"
+                  className="text-6xl md:text-7xl lg:text-9xl font-bold text-white leading-none tracking-tighter -mt-[12px] drop-shadow-[0_10px_30px_rgba(0,0,0,0.5)]"
                 >
                   {t('hero.title2')}
                 </motion.h1>
@@ -92,7 +97,7 @@ const Hero = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 1, delay: 0.8 }}
-                className="text-lg md:text-xl dark:text-gray-400 text-slate-600 mt-6 mb-10 max-w-2xl"
+                className="text-lg md:text-2xl text-white/80 mt-8 mb-12 max-w-3xl leading-relaxed font-medium drop-shadow-md"
               >
                 {t('hero.desc')}
               </motion.p>
@@ -101,14 +106,14 @@ const Hero = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 1.2 }}
-                className="flex flex-col lg:flex-row items-center gap-4"
+                className="flex flex-col lg:flex-row items-center gap-6"
               >
-                <button className="w-full lg:w-auto px-10 py-4 rounded-full text-white bg-[#3c3b6e] hover:bg-[#4c4b8e] transition-all font-bold shadow-lg shadow-[#3c3b6e]/20 hover:scale-105 active:scale-95 shrink-0">
+                <button className="w-full lg:w-auto px-12 py-5 rounded-full text-white bg-[#3c3b6e] hover:bg-[#4c4b8e] transition-all font-bold shadow-[0_20px_50px_rgba(60,59,110,0.3)] hover:shadow-[0_20px_60px_rgba(60,59,110,0.5)] hover:scale-105 active:scale-95 shrink-0 text-lg">
                   {t('hero.btn1')}
                 </button>
                 
                 <div className="flex flex-col sm:flex-row items-center gap-4 w-full lg:w-auto">
-                  <button className="w-full sm:w-auto px-8 py-4 rounded-full border dark:border-white/20 border-black/20 dark:text-white text-slate-900 font-medium hover:dark:bg-white/10 bg-black/10 transition-all shrink-0">
+                  <button className="w-full sm:w-auto px-10 py-5 rounded-full border border-white/30 text-white font-bold backdrop-blur-md hover:bg-white/10 transition-all shrink-0 text-lg">
                     {t('hero.btn2')}
                   </button>
 
