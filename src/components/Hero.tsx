@@ -48,7 +48,7 @@ const Hero = () => {
             playsInline
             preload="auto"
             onError={(e) => console.error("Hero video failed to load. Check if /businesshero.mp4 exists in public/", e)}
-            className="w-full h-full object-cover dark:opacity-40 opacity-50 dark:brightness-[0.3] brightness-[0.9] pointer-events-none transition-all duration-1000 bg-slate-900"
+            className="w-full h-full object-cover dark:opacity-40 opacity-50 dark:brightness-[0.5] brightness-[0.9] pointer-events-none transition-all duration-1000 bg-slate-900"
           >
             <source src="/businesshero.mp4" type="video/mp4" />
           </video>
