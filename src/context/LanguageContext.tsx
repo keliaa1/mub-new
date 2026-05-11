@@ -109,9 +109,8 @@ const translations: Record<Language, Record<string, string>> = {
     'link.payment_policy': 'Payment Policy',
     
     // Branches
-    'branch.usa': 'Miami HQ',
-    'branch.vegas': 'Las Vegas HQ',
-    'branch.panama': 'Panama Branch',
+    'branch.usa': 'Miami',
+    'branch.vegas': 'Las Vegas',
     
     // Benefits
     'benefits.subtitle': 'Your Advantages',
@@ -262,9 +261,8 @@ const translations: Record<Language, Record<string, string>> = {
     'link.payment_policy': 'Política de Pagos',
     
     // Branches
-    'branch.usa': 'Sede Miami',
-    'branch.vegas': 'Sede Las Vegas',
-    'branch.panama': 'Sucursal Panamá',
+    'branch.usa': 'Miami',
+    'branch.vegas': 'Las Vegas',
     
     // Benefits ES
     'benefits.subtitle': 'Tus Ventajas',

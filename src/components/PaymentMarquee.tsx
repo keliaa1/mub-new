@@ -13,8 +13,7 @@ const PaymentMarquee = () => {
     { name: "American Express", logo: "https://upload.wikimedia.org/wikipedia/commons/f/fa/American_Express_logo_%282018%29.svg" },
     { name: "Diners Club", logo: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/dinersclub.svg" },
     { name: "UnionPay", logo: "https://upload.wikimedia.org/wikipedia/commons/1/1b/UnionPay_logo.svg" },
-    { name: "US Bank Transfer", logo: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/zelle.svg" },
-    { name: "Panama Bank Transfer", logo: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/bankofamerica.svg" },
+    { name: "US Bank Transfer", logo: "data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23111' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='3' y1='22' x2='21' y2='22'%3E%3C/line%3E%3Cline x1='6' y1='18' x2='6' y2='11'%3E%3C/line%3E%3Cline x1='10' y1='18' x2='10' y2='11'%3E%3C/line%3E%3Cline x1='14' y1='18' x2='14' y2='11'%3E%3C/line%3E%3Cline x1='18' y1='18' x2='18' y2='11'%3E%3C/line%3E%3Cpolygon points='12 2 20 7 4 7'%3E%3C/polygon%3E%3C/svg%3E" },
     { name: "USDT", logo: "https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/tether.svg" },
     { name: "USDC", logo: "https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/usdcoin.svg" },
     { name: "BTC", logo: "https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/bitcoin.svg" },
@@ -49,7 +48,7 @@ const PaymentMarquee = () => {
                 src={item.logo}
                 alt={item.name}
                 className={`w-7 h-7 object-contain transition-all duration-300 ${
-                  item.name === 'Visa' ? 'dark:brightness-0 dark:invert' : ''
+                  (item.name === 'Visa' || item.name === 'US Bank Transfer') ? 'dark:brightness-0 dark:invert' : ''
                 }`}
               />
               <span className="dark:text-gray-400 text-slate-600 font-semibold text-sm group-hover:dark:text-white text-slate-900 transition-colors">

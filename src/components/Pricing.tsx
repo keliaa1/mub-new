@@ -38,7 +38,7 @@ const Pricing = () => {
       }
       if (id === 'delaware') {
         return {
-          id, name: stateName, price: '$599', period: 'ONE-TIME', tag: t('pricing.tag.investor'),
+          id, name: stateName, price: '$600', period: 'ONE-TIME', tag: t('pricing.tag.investor'),
           badge: 'Delaware LLC', sub: t('pricing.sub.delaware'),
           features: [
             t('pricing.feature.filing_fees'), t('pricing.feature.registered_agent'), t('pricing.feature.operating_agreement'),
@@ -65,14 +65,14 @@ const Pricing = () => {
       }
       if (id === 'texas') {
         return {
-          id, name: stateName, price: '$649', period: 'ONE-TIME', tag: t('pricing.tag.lonestar'),
+          id, name: stateName, price: '$700', period: 'ONE-TIME', tag: t('pricing.tag.lonestar'),
           badge: 'Texas LLC', sub: t('pricing.sub.texas'),
           features: baseFeatures
         };
       }
       
       return {
-        id, name: stateName, price: '$549', period: 'ONE-TIME', tag: '',
+        id, name: stateName, price: '$600', period: 'ONE-TIME', tag: '',
         badge: `${stateName} LLC`, sub: `${t('pricing.sub.default')} ${stateName}.`,
         features: baseFeatures
       };

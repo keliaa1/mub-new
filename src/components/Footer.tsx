@@ -42,7 +42,7 @@ const Footer = () => {
     </svg>
   );
   
-  const [selectedBranch, setSelectedBranch] = useState<'usa' | 'panama' | 'vegas'>('usa');
+  const [selectedBranch, setSelectedBranch] = useState<'usa' | 'vegas'>('usa');
   
   const locations = {
     usa: {
@@ -56,12 +56,6 @@ const Footer = () => {
       address: "Las Vegas, NV, USA",
       map: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d103131.62534571999!2d-115.2285125!3d36.1249185!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80beb782a4f57dd1%3A0x3accd5e6d5b379a3!2sLas%20Vegas%2C%20NV!5e0!3m2!1sen!2sus!4v1715012345678!5m2!1sen!2sus",
       description: t('footer.vegas_desc')
-    },
-    panama: {
-      name: t('branch.panama'),
-      address: "Oceania Business Plaza, Panama City, Panama",
-      map: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3940.906354395893!2d-79.51226892543506!3d8.9807246399427!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8faca91c7834c9bb%3A0xc95b7089e324a79a!2sOceania%20Business%20Center!5e0!3m2!1sen!2srw!4v1715018694000!5m2!1sen!2srw",
-      description: t('footer.panama_desc')
     }
   };
 
@@ -80,7 +74,7 @@ const Footer = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="bg-[#3c3b6e] rounded-[40px] p-8 md:p-16 flex flex-col lg:flex-row items-center gap-12 mb-24 relative overflow-hidden"
+          className="bg-gray-50 dark:bg-[#0a0a0a] p-8 md:p-16 border border-black/10 dark:border-white/10 flex flex-col lg:flex-row items-center gap-12 mb-24 relative overflow-hidden"
         >
           {/* Subtle Background Pattern */}
           <div className="absolute inset-0 opacity-10 pointer-events-none">
@@ -88,19 +82,19 @@ const Footer = () => {
           </div>
 
           <div className="flex-1 text-center lg:text-left z-10">
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight whitespace-pre-line">
+            <h2 className="text-4xl md:text-5xl font-medium text-[#111] dark:text-[#eee] tracking-tight mb-6 leading-tight whitespace-pre-line">
               {t('footer.headquarters')}
             </h2>
-            <div className="flex flex-col gap-6 text-white/80">
-              <div className="flex gap-2 p-1 bg-white/10 rounded-2xl w-fit mb-2">
+            <div className="flex flex-col gap-6 text-gray-500 dark:text-gray-400 font-light">
+              <div className="flex gap-2 p-1 bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 w-fit mb-2">
                 {(Object.keys(locations) as Array<keyof typeof locations>).map((branch) => (
                   <button
                     key={branch}
                     onClick={() => setSelectedBranch(branch)}
-                    className={`px-6 py-2 rounded-xl text-sm font-bold transition-all ${
+                    className={`px-6 py-2 text-sm font-medium transition-all ${
                       selectedBranch === branch 
-                        ? 'bg-white text-[#3c3b6e] shadow-lg' 
-                        : 'text-white hover:bg-white/10'
+                        ? 'bg-[#111] dark:bg-[#eee] text-white dark:text-[#111]' 
+                        : 'text-gray-500 dark:text-gray-400 hover:bg-black/5 hover:dark:bg-white/5'
                     }`}
                   >
                     {locations[branch].name}
@@ -118,10 +112,10 @@ const Footer = () => {
                   className="flex flex-col gap-4"
                 >
                   <div className="flex items-center justify-center lg:justify-start gap-3">
-                    <MapPin className="w-5 h-5 text-white" />
-                    <p className="text-lg font-medium">{currentOffice.address}</p>
+                    <MapPin className="w-5 h-5 text-[#111] dark:text-[#eee]" />
+                    <p className="text-lg font-medium text-[#111] dark:text-[#eee]">{currentOffice.address}</p>
                   </div>
-                  <p className="text-sm max-w-md opacity-70">
+                  <p className="text-sm max-w-md opacity-80">
                     {currentOffice.description}
                   </p>
                 </motion.div>
