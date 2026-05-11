@@ -2,37 +2,7 @@ import { useRef } from 'react';
 import { motion, useInView } from 'motion/react';
 import { AnimatedList } from './AnimatedList';
 import { Shield, Zap, Globe, CheckCircle2 } from 'lucide-react';
-
-const notifications = [
-  {
-    name: "Expert Guidance",
-    description: "Personalized US business advisory.",
-    time: "Just now",
-    icon: <Shield className="w-4 h-4 text-white" />,
-    color: "#3c3b6e",
-  },
-  {
-    name: "100% Remote",
-    description: "No US travel required ever.",
-    time: "2m ago",
-    icon: <Globe className="w-4 h-4 text-white" />,
-    color: "#3c3b6e",
-  },
-  {
-    name: "Fast EIN Setup",
-    description: "Direct IRS filing in record time.",
-    time: "5m ago",
-    icon: <Zap className="w-4 h-4 text-white" />,
-    color: "#3c3b6e",
-  },
-  {
-    name: "Legal Compliance",
-    description: "Registered Agent & Annual Filings.",
-    time: "10m ago",
-    icon: <CheckCircle2 className="w-4 h-4 text-white" />,
-    color: "#3c3b6e",
-  },
-];
+import { useLanguage } from '../context/LanguageContext';
 
 const Notification = ({ name, description, icon, color, time }: any) => {
   return (
@@ -60,6 +30,38 @@ const Notification = ({ name, description, icon, color, time }: any) => {
 const WhyChooseUs = () => {
   const containerRef = useRef(null);
   const isInView = useInView(containerRef, { once: true, amount: 0.3 });
+  const { t } = useLanguage();
+
+  const notifications = [
+    {
+      name: t('why.guidance'),
+      description: t('why.guidance_desc'),
+      time: t('why.time1'),
+      icon: <Shield className="w-4 h-4 text-white" />,
+      color: "#3c3b6e",
+    },
+    {
+      name: t('why.remote'),
+      description: t('why.remote_desc'),
+      time: t('why.time2'),
+      icon: <Globe className="w-4 h-4 text-white" />,
+      color: "#3c3b6e",
+    },
+    {
+      name: t('why.ein'),
+      description: t('why.ein_desc'),
+      time: t('why.time3'),
+      icon: <Zap className="w-4 h-4 text-white" />,
+      color: "#3c3b6e",
+    },
+    {
+      name: t('why.compliance'),
+      description: t('why.compliance_desc'),
+      time: t('why.time4'),
+      icon: <CheckCircle2 className="w-4 h-4 text-white" />,
+      color: "#3c3b6e",
+    },
+  ];
 
   return (
     <section id="why-choose-us" ref={containerRef} className="py-24 dark:bg-[#0B0D0F] bg-slate-50">
@@ -82,8 +84,8 @@ const WhyChooseUs = () => {
             <div className="absolute inset-0 bg-gradient-to-t from-[#0B0D0F] via-transparent to-transparent opacity-60" />
 
             <div className="absolute bottom-8 left-8">
-              <h4 className="text-2xl font-bold dark:text-white text-slate-900 mb-2">Trusted Partnerships</h4>
-              <p className="dark:text-gray-400 text-white max-w-sm">We've helped over 5,000 founders from 120+ countries launch their US dream successfully.</p>
+              <h4 className="text-2xl font-bold dark:text-white text-slate-900 mb-2">{t('why.trust_title')}</h4>
+              <p className="dark:text-gray-400 text-white max-w-sm">{t('why.trust_desc')}</p>
             </div>
           </motion.div>
 
@@ -95,15 +97,15 @@ const WhyChooseUs = () => {
               viewport={{ once: true }}
               className="mb-12"
             >
-              <h2 className="text-sm font-semibold text-[#3c3b6e] tracking-wider uppercase mb-3">Our Expertise</h2>
+              <h2 className="text-sm font-semibold text-[#3c3b6e] tracking-wider uppercase mb-3">{t('why.expertise')}</h2>
               <h3 className="text-4xl md:text-5xl font-normal dark:text-white text-slate-900 tracking-tight leading-tight">
-                Why Founders Choose <br />
-                <span className="dark:text-white text-slate-900 font-bold">My USA Business</span>
+                {t('why.title1')} <br />
+                <span className="dark:text-white text-slate-900 font-bold">{t('why.title2')}</span>
               </h3>
             </motion.div>
 
             <div className="relative w-full max-w-[500px]">
-              <AnimatedList delay={1500} start={isInView}>
+              <AnimatedList delay={500} start={isInView}>
                 {notifications.map((item, idx) => (
                   <Notification {...item} key={idx} />
                 ))}

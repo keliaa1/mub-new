@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect, useMemo } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { useLanguage } from '../context/LanguageContext';
 import { ChevronDown, Check } from 'lucide-react';
@@ -11,78 +11,86 @@ const usStates = [
   "South Dakota", "Tennessee", "Texas", "Utah", "Vermont", "Virginia", "Washington", "West Virginia", "Wisconsin", "Wyoming"
 ];
 
-const baseFeatures = [
-  'State Filing Fees Included',
-  'Registered Agent (1st Year)',
-  'Operating Agreement',
-  'EIN (Tax ID) Application',
-  'Banking Introduction',
-  'Digital Corporate Kit'
-];
-
-const stateData = usStates.map(stateName => {
-  const id = stateName.toLowerCase().replace(/\s+/g, '_');
-  
-  if (id === 'wyoming') {
-    return {
-      id, name: stateName, price: '$499', period: 'ONE-TIME', tag: 'Most Popular',
-      badge: 'Wyoming LLC', sub: 'Privacy & Low Fees. Ideal for Non-Residents.',
-      features: baseFeatures
-    };
-  }
-  if (id === 'delaware') {
-    return {
-      id, name: stateName, price: '$599', period: 'ONE-TIME', tag: 'Investor Friendly',
-      badge: 'Delaware LLC', sub: 'Corporate Law Standard. Best for Startups.',
-      features: [
-        'State Filing Fees Included', 'Registered Agent (1st Year)', 'Operating Agreement',
-        'EIN (Tax ID) Application', 'Corporate Resolution', 'Banking Introduction', 'Digital Corporate Kit'
-      ]
-    };
-  }
-  if (id === 'new_mexico') {
-    return {
-      id, name: stateName, price: '$399', period: 'ONE-TIME', tag: 'Best Value',
-      badge: 'New Mexico LLC', sub: 'No Annual Fees. Maximum Privacy.',
-      features: baseFeatures
-    };
-  }
-  if (id === 'florida') {
-    return {
-      id, name: stateName, price: '$549', period: 'ONE-TIME', tag: 'Sunshine State',
-      badge: 'Florida LLC', sub: 'Great for E-commerce & Local Business.',
-      features: [
-        'State Filing Fees Included', 'Registered Agent (1st Year)', 'Operating Agreement',
-        'EIN (Tax ID) Application', 'Bank Account Resolution', 'Banking Introduction', 'Digital Corporate Kit'
-      ]
-    };
-  }
-  if (id === 'texas') {
-    return {
-      id, name: stateName, price: '$649', period: 'ONE-TIME', tag: 'Lone Star State',
-      badge: 'Texas LLC', sub: 'No State Income Tax. Strong Economy.',
-      features: baseFeatures
-    };
-  }
-  
-  return {
-    id, name: stateName, price: '$549', period: 'ONE-TIME', tag: '',
-    badge: `${stateName} LLC`, sub: `Professional LLC Formation in ${stateName}.`,
-    features: baseFeatures
-  };
-});
-
 const popularStateIds = ['wyoming', 'delaware', 'new_mexico', 'florida', 'texas'];
-const sortedStateData = [
-  ...stateData.filter(s => popularStateIds.includes(s.id)).sort((a, b) => popularStateIds.indexOf(a.id) - popularStateIds.indexOf(b.id)),
-  ...stateData.filter(s => !popularStateIds.includes(s.id))
-];
 
 const Pricing = () => {
   const { t } = useLanguage();
+  
+  const sortedStateData = useMemo(() => {
+    const baseFeatures = [
+      t('pricing.feature.filing_fees'),
+      t('pricing.feature.registered_agent'),
+      t('pricing.feature.operating_agreement'),
+      t('pricing.feature.ein'),
+      t('pricing.feature.banking'),
+      t('pricing.feature.kit')
+    ];
+
+    const stateData = usStates.map(stateName => {
+      const id = stateName.toLowerCase().replace(/\s+/g, '_');
+      
+      if (id === 'wyoming') {
+        return {
+          id, name: stateName, price: '$600', period: 'ONE-TIME', tag: t('pricing.tag.popular'),
+          badge: 'Wyoming LLC', sub: t('pricing.sub.wyoming'),
+          features: baseFeatures
+        };
+      }
+      if (id === 'delaware') {
+        return {
+          id, name: stateName, price: '$599', period: 'ONE-TIME', tag: t('pricing.tag.investor'),
+          badge: 'Delaware LLC', sub: t('pricing.sub.delaware'),
+          features: [
+            t('pricing.feature.filing_fees'), t('pricing.feature.registered_agent'), t('pricing.feature.operating_agreement'),
+            t('pricing.feature.ein'), t('pricing.feature.resolution'), t('pricing.feature.banking'), t('pricing.feature.kit')
+          ]
+        };
+      }
+      if (id === 'new_mexico') {
+        return {
+          id, name: stateName, price: '$500', period: 'ONE-TIME', tag: t('pricing.tag.value'),
+          badge: 'New Mexico LLC', sub: t('pricing.sub.new_mexico'),
+          features: baseFeatures
+        };
+      }
+      if (id === 'florida') {
+        return {
+          id, name: stateName, price: '$600', period: 'ONE-TIME', tag: t('pricing.tag.sunshine'),
+          badge: 'Florida LLC', sub: t('pricing.sub.florida'),
+          features: [
+            t('pricing.feature.filing_fees'), t('pricing.feature.registered_agent'), t('pricing.feature.operating_agreement'),
+            t('pricing.feature.ein'), t('pricing.feature.bank_resolution'), t('pricing.feature.banking'), t('pricing.feature.kit')
+          ]
+        };
+      }
+      if (id === 'texas') {
+        return {
+          id, name: stateName, price: '$649', period: 'ONE-TIME', tag: t('pricing.tag.lonestar'),
+          badge: 'Texas LLC', sub: t('pricing.sub.texas'),
+          features: baseFeatures
+        };
+      }
+      
+      return {
+        id, name: stateName, price: '$549', period: 'ONE-TIME', tag: '',
+        badge: `${stateName} LLC`, sub: `${t('pricing.sub.default')} ${stateName}.`,
+        features: baseFeatures
+      };
+    });
+
+    return [
+      ...stateData.filter(s => popularStateIds.includes(s.id)).sort((a, b) => popularStateIds.indexOf(a.id) - popularStateIds.indexOf(b.id)),
+      ...stateData.filter(s => !popularStateIds.includes(s.id))
+    ];
+  }, [t]);
+
   const [selectedState, setSelectedState] = useState(sortedStateData[0]);
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    setSelectedState((prev) => sortedStateData.find(s => s.id === prev.id) || sortedStateData[0]);
+  }, [sortedStateData]);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -112,15 +120,15 @@ const Pricing = () => {
                 </span>
               </div>
               <h3 className="text-4xl md:text-5xl font-medium text-[#111] dark:text-[#eee] tracking-tight leading-[1.2] mb-6">
-                Transparent offshore solutions.
+                {t('pricing.title_main')}
               </h3>
               <p className="text-gray-500 dark:text-gray-400 font-light text-lg">
-                Select a state to view precise formation costs and included services. We believe in zero hidden fees and absolute clarity.
+                {t('pricing.desc')}
               </p>
             </motion.div>
 
             <div className="relative mt-12 z-20" ref={dropdownRef}>
-              <span className="text-xs font-mono uppercase tracking-widest text-gray-500 mb-3 block">Formation State</span>
+              <span className="text-xs font-mono uppercase tracking-widest text-gray-500 mb-3 block">{t('pricing.state_selector')}</span>
               <button 
                 onClick={() => setIsOpen(!isOpen)}
                 className="w-full flex items-center justify-between border-b border-black/20 dark:border-white/20 py-4 group transition-all"
@@ -190,7 +198,7 @@ const Pricing = () => {
                 </div>
 
                 <div className="mb-10">
-                  <span className="text-xs font-mono uppercase tracking-widest text-gray-500 mb-6 block">Included Features</span>
+                  <span className="text-xs font-mono uppercase tracking-widest text-gray-500 mb-6 block">{t('pricing.features_title')}</span>
                   <ul className="grid grid-cols-1 md:grid-cols-2 gap-y-4 gap-x-8">
                     {selectedState.features.map((feature, i) => (
                       <motion.li 
@@ -208,7 +216,7 @@ const Pricing = () => {
                 </div>
 
                 <button className="w-full py-5 bg-[#111] dark:bg-[#eee] text-white dark:text-[#111] text-sm font-medium hover:bg-gray-800 dark:hover:bg-white transition-colors flex justify-center items-center gap-2 group">
-                  <span>Proceed with {selectedState.name}</span>
+                  <span>{t('pricing.proceed')} {selectedState.name}</span>
                   <span className="transition-transform group-hover:translate-x-1">→</span>
                 </button>
               </motion.div>

@@ -1,27 +1,30 @@
 import { motion } from 'motion/react';
 import { Shield, Zap, Globe, Clock } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 
 const QuickBenefits = () => {
+  const { t } = useLanguage();
+  
   const benefits = [
     {
       icon: <Shield className="w-6 h-6 text-white" />,
-      title: "Secure Formation",
-      description: "State-approved incorporation with full legal protection for your global assets."
+      title: t('quick.secure'),
+      description: t('quick.secure_desc')
     },
     {
       icon: <Zap className="w-6 h-6 text-white" />,
-      title: "Lightning Fast",
-      description: "Documents filed within 24 hours. Get your business up and running in days."
+      title: t('quick.fast'),
+      description: t('quick.fast_desc')
     },
     {
       icon: <Globe className="w-6 h-6 text-white" />,
-      title: "Global Banking",
-      description: "Assistance with remote US bank account setup through our partner networks."
+      title: t('quick.banking'),
+      description: t('quick.banking_desc')
     },
     {
       icon: <Clock className="w-6 h-6 text-white" />,
-      title: "Always Online",
-      description: "24/7 dashboard access to manage your compliance and legal documents."
+      title: t('quick.online'),
+      description: t('quick.online_desc')
     }
   ];
 

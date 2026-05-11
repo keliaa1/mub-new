@@ -48,7 +48,9 @@ const PaymentMarquee = () => {
               <img
                 src={item.logo}
                 alt={item.name}
-                className="w-7 h-7 object-contain transition-all duration-300"
+                className={`w-7 h-7 object-contain transition-all duration-300 ${
+                  item.name === 'Visa' ? 'dark:brightness-0 dark:invert' : ''
+                }`}
               />
               <span className="dark:text-gray-400 text-slate-600 font-semibold text-sm group-hover:dark:text-white text-slate-900 transition-colors">
                 {item.name}

@@ -1,46 +1,5 @@
 import { Marquee } from "./Marquee";
-
-const reviews = [
-  {
-    name: "Alejandro Gomez",
-    business: "Gomez Logistics LLC",
-    body: "Starting a US business from Colombia seemed impossible until I found My USA Business. The process was seamless and incredibly fast.",
-    img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop",
-  },
-  {
-    name: "Chen Wei",
-    business: "Horizon Tech Solutions",
-    body: "The EIN acquisition and banking support were life-savers. Highly recommend for any international founder entering the US market.",
-    img: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop",
-  },
-  {
-    name: "Elena Petrova",
-    business: "Petrova Consulting",
-    body: "Professional, fast, and reliable. They handled all the compliance work so I could focus on my customers. A truly premium service.",
-    img: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop",
-  },
-  {
-    name: "Marcus Schmidt",
-    business: "Schmidt Global Ventures",
-    body: "The easiest way to get a US bank account as a non-resident. Their support team is world-class and always responsive.",
-    img: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop",
-  },
-  {
-    name: "Sofia Rodriguez",
-    business: " Rodriguez E-commerce",
-    body: "Incredible service. I had my LLC and EIN in record time. Truly a premium experience for international founders.",
-    img: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop",
-  },
-  {
-    name: "Ahmed Hassan",
-    business: "Hassan Digital Agency",
-    body: "Their tax and compliance support is top-notch. I feel confident running my US business from abroad knowing they have my back.",
-    img: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=100&h=100&fit=crop",
-  },
-];
-
-const firstRow = reviews.slice(0, reviews.length / 2);
-const secondRow = reviews.slice(reviews.length / 2);
+import { useLanguage } from '../context/LanguageContext';
 
 const ReviewCard = ({
   img,
@@ -72,12 +31,56 @@ const ReviewCard = ({
 };
 
 const Testimonials = () => {
+  const { t } = useLanguage();
+
+  const reviews = [
+    {
+      name: "Alejandro Gomez",
+      business: "Gomez Logistics LLC",
+      body: t('test.review1'),
+      img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop",
+    },
+    {
+      name: "Chen Wei",
+      business: "Horizon Tech Solutions",
+      body: t('test.review2'),
+      img: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop",
+    },
+    {
+      name: "Elena Petrova",
+      business: "Petrova Consulting",
+      body: t('test.review3'),
+      img: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop",
+    },
+    {
+      name: "Marcus Schmidt",
+      business: "Schmidt Global Ventures",
+      body: t('test.review4'),
+      img: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop",
+    },
+    {
+      name: "Sofia Rodriguez",
+      business: " Rodriguez E-commerce",
+      body: t('test.review5'),
+      img: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop",
+    },
+    {
+      name: "Ahmed Hassan",
+      business: "Hassan Digital Agency",
+      body: t('test.review6'),
+      img: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=100&h=100&fit=crop",
+    },
+  ];
+
+  const firstRow = reviews.slice(0, reviews.length / 2);
+  const secondRow = reviews.slice(reviews.length / 2);
+
   return (
     <section className="py-24 dark:bg-[#121417] bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 md:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-sm font-semibold dark:text-gray-400 text-slate-600 tracking-wider uppercase mb-3">Testimonials</h2>
-          <h3 className="text-4xl md:text-5xl font-normal dark:text-white text-slate-900 tracking-tight">Trusted by Founders Worldwide</h3>
+          <h2 className="text-sm font-semibold dark:text-gray-400 text-slate-600 tracking-wider uppercase mb-3">{t('test.subtitle')}</h2>
+          <h3 className="text-4xl md:text-5xl font-normal dark:text-white text-slate-900 tracking-tight">{t('test.title')}</h3>
         </div>
 
         <div className="relative flex w-full flex-col items-center justify-center overflow-hidden">

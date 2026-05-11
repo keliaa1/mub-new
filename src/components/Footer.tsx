@@ -2,16 +2,30 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { MapPin } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useLanguage } from '../context/LanguageContext';
 
 const Footer = () => {
-  const footerLinks = {
-    Features: ['LLC Formation', 'EIN Registration', 'Registered Agent', 'Banking Support'],
-    Support: ['Help Center', 'FAQ', 'Contact Us', 'Reviews'],
-    Legal: ['Privacy Policy', 'Terms of Service', 'Cookies', 'Payment Policy']
-  };
+  const { t } = useLanguage();
 
-  const slugify = (text: string) => {
-    return text.toLowerCase().replace(/\s+/g, '-');
+  const footerLinks = {
+    [t('footer.features')]: [
+      { key: 'link.llc_formation', url: '/llc-formation' },
+      { key: 'link.ein_registration', url: '/ein-registration' },
+      { key: 'link.registered_agent', url: '/registered-agent' },
+      { key: 'link.banking_support', url: '/banking-support' }
+    ],
+    [t('footer.support')]: [
+      { key: 'link.help_center', url: '/help-center' },
+      { key: 'link.faq', url: '/faq' },
+      { key: 'link.contact_us', url: '/contact-us' },
+      { key: 'link.reviews', url: '/reviews' }
+    ],
+    [t('footer.legal')]: [
+      { key: 'link.privacy_policy', url: '/privacy-policy' },
+      { key: 'link.terms_of_service', url: '/terms-of-service' },
+      { key: 'link.cookies', url: '/cookies' },
+      { key: 'link.payment_policy', url: '/payment-policy' }
+    ]
   };
 
   const FacebookIcon = (props: any) => (
@@ -27,21 +41,27 @@ const Footer = () => {
       <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
     </svg>
   );
-
-  const [selectedBranch, setSelectedBranch] = useState<'usa' | 'panama'>('usa');
-
+  
+  const [selectedBranch, setSelectedBranch] = useState<'usa' | 'panama' | 'vegas'>('usa');
+  
   const locations = {
     usa: {
-      name: "USA Branch",
+      name: t('branch.usa'),
       address: "1000 Brickell Ave, Miami, FL 33131, USA",
       map: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3592.8317765104686!2d-80.19169602381283!3d25.772095677342894!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88d9b69998818817%3A0xc34a6e8f4955f3a0!2s1000%20Brickell%20Ave%2C%20Miami%2C%20FL%2033131%2C%20USA!5e0!3m2!1sen!2sus!4v1715012345678!5m2!1sen!2sus",
-      description: "Centrally located in the heart of Miami's financial district. Our team is ready to help you navigate your US business journey."
+      description: t('footer.miami_desc')
+    },
+    vegas: {
+      name: t('branch.vegas'),
+      address: "Las Vegas, NV, USA",
+      map: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d103131.62534571999!2d-115.2285125!3d36.1249185!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80beb782a4f57dd1%3A0x3accd5e6d5b379a3!2sLas%20Vegas%2C%20NV!5e0!3m2!1sen!2sus!4v1715012345678!5m2!1sen!2sus",
+      description: t('footer.vegas_desc')
     },
     panama: {
-      name: "Panama Branch",
+      name: t('branch.panama'),
       address: "Oceania Business Plaza, Panama City, Panama",
       map: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3940.906354395893!2d-79.51226892543506!3d8.9807246399427!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8faca91c7834c9bb%3A0xc95b7089e324a79a!2sOceania%20Business%20Center!5e0!3m2!1sen!2srw!4v1715018694000!5m2!1sen!2srw",
-      description: "Our Panama hub in the Oceania Business Plaza serves as our strategic bridge for Latin American founders expanding globally."
+      description: t('footer.panama_desc')
     }
   };
 
@@ -68,9 +88,8 @@ const Footer = () => {
           </div>
 
           <div className="flex-1 text-center lg:text-left z-10">
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
-              Visit our <br />
-              corporate office
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight whitespace-pre-line">
+              {t('footer.headquarters')}
             </h2>
             <div className="flex flex-col gap-6 text-white/80">
               <div className="flex gap-2 p-1 bg-white/10 rounded-2xl w-fit mb-2">
@@ -138,9 +157,11 @@ const Footer = () => {
         {/* Links Section */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 pb-16">
           <div className="lg:col-span-2 flex flex-col gap-6">
-            <Link to="/" className="text-2xl font-bold dark:text-white text-slate-900 tracking-tighter">My USA Business</Link>
+            <Link to="/" className="flex items-center">
+              <img src="/logo.webp" alt="My USA Business" className="h-10 w-auto object-contain" />
+            </Link>
             <p className="dark:text-gray-400 text-slate-600 max-w-sm leading-relaxed">
-              Empowering international entrepreneurs to launch and manage successful businesses in the United States. Your global partner in corporate formation.
+              {t('footer.description')}
             </p>
             <div className="flex gap-4">
               {socialLinks.map((social) => (
@@ -160,9 +181,9 @@ const Footer = () => {
               <h4 className="dark:text-white text-slate-900 font-bold text-lg">{category}</h4>
               <ul className="flex flex-col gap-3">
                 {links.map((link) => (
-                  <li key={link}>
-                    <Link to={`/${slugify(link)}`} className="dark:text-gray-400 text-slate-600 hover:text-[#3c3b6e] transition-colors font-medium">
-                      {link}
+                  <li key={link.key}>
+                    <Link to={link.url} className="dark:text-gray-400 text-slate-600 hover:text-[#3c3b6e] transition-colors font-medium">
+                      {t(link.key)}
                     </Link>
                   </li>
                 ))}
@@ -174,11 +195,11 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="pt-8 border-t dark:border-white/5 border-black/5 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="dark:text-gray-500 text-slate-500 text-sm">
-            © 2026 My USA Business. All rights reserved.
+            © 2026 My USA Business. {t('footer.rights')}
           </p>
           <div className="flex gap-8 text-sm dark:text-gray-500 text-slate-500">
-            <Link to="/security" className="hover:dark:text-white text-slate-900 transition-colors">Security</Link>
-            <Link to="/sitemap" className="hover:dark:text-white text-slate-900 transition-colors">Sitemap</Link>
+            <Link to="/security" className="hover:dark:text-white text-slate-900 transition-colors">{t('footer.security')}</Link>
+            <Link to="/sitemap" className="hover:dark:text-white text-slate-900 transition-colors">{t('footer.sitemap')}</Link>
           </div>
         </div>
       </div>

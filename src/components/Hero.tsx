@@ -31,6 +31,15 @@ const Hero = () => {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
+  useEffect(() => {
+    // Attempt to force autoplay on mobile devices
+    if (videoRef.current) {
+      videoRef.current.play().catch(error => {
+        console.error("Video autoplay blocked by browser:", error);
+      });
+    }
+  }, []);
+
   return (
     <div className="min-h-screen flex flex-col dark:bg-[#050505] bg-white text-[#111] dark:text-[#eee]">
       <div className="relative z-30 border-b border-black/10 dark:border-white/10">
@@ -46,7 +55,7 @@ const Hero = () => {
             loop
             playsInline
             preload="auto"
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover pointer-events-none"
           >
             <source src="/businesshero.mp4" type="video/mp4" />
           </video>

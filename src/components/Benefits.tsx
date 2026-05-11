@@ -1,6 +1,9 @@
 import { motion } from 'motion/react';
+import { useLanguage } from '../context/LanguageContext';
 
 const Benefits = () => {
+  const { t } = useLanguage();
+
   return (
     <section id="benefits" className="py-24 dark:bg-[#121417] bg-white">
       <div className="max-w-7xl mx-auto px-6 md:px-8">
@@ -11,17 +14,17 @@ const Benefits = () => {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-sm font-semibold dark:text-gray-400 text-slate-600 tracking-wider uppercase mb-3">Your Advantages</h2>
-            <h3 className="text-4xl md:text-5xl font-normal dark:text-white text-slate-900 tracking-tight mb-6">Expand Your Reach</h3>
+            <h2 className="text-sm font-semibold dark:text-gray-400 text-slate-600 tracking-wider uppercase mb-3">{t('benefits.subtitle')}</h2>
+            <h3 className="text-4xl md:text-5xl font-normal dark:text-white text-slate-900 tracking-tight mb-6">{t('benefits.title')}</h3>
             <p className="text-lg dark:text-gray-400 text-slate-600 mb-8 leading-relaxed">
-              Unlock the world's largest economy with ease. We handle the paperwork so you can focus on growing your global brand.
+              {t('benefits.desc')}
             </p>
             <ul className="space-y-4">
               {[
-                'Opening a Bank Account',
-                'Create or expand your business into the international market.',
-                'Receive payments directly into your account in dollars',
-                'Handle deposits, transfers, and withdrawals with ease'
+                t('benefits.list1'),
+                t('benefits.list2'),
+                t('benefits.list3'),
+                t('benefits.list4')
               ].map((benefit, i) => (
                 <motion.li
                   key={i}

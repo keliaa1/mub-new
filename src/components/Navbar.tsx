@@ -56,7 +56,7 @@ const Navbar = () => {
       className="w-full max-w-7xl mx-auto px-6 md:px-8 py-6 relative z-50 flex items-center justify-between"
     >
       <Link to="/" className="flex items-center gap-3 z-50 relative">
-        <span className="text-xl font-bold tracking-tighter text-[#111] dark:text-[#eee]">MY USA BIZ</span>
+        <img src="/logo.webp" alt="My USA Business" className="h-10 md:h-12 w-auto object-contain" />
       </Link>
 
       {/* Desktop Menu */}
