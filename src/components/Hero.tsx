@@ -33,13 +33,14 @@ const Hero = () => {
 
   return (
     <div className="min-h-screen dark:bg-[#0B0D0F] bg-slate-50">
-      <section className="relative h-screen z-20 overflow-hidden">
-        <motion.div
-          initial={{ scale: 1.1, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          transition={{ duration: 1.5, ease: "easeOut" }}
-          className="absolute inset-0 z-0"
-        >
+      <section className="relative h-screen z-20">
+        <div className="absolute inset-0 overflow-hidden z-0">
+          <motion.div
+            initial={{ scale: 1.1, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 1.5, ease: "easeOut" }}
+            className="w-full h-full relative"
+          >
           <video
             ref={videoRef}
             autoPlay
@@ -56,7 +57,8 @@ const Hero = () => {
           <div className="absolute inset-0 bg-black/30 dark:bg-black/50" />
           <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/60 dark:from-black/80 dark:to-[#0B0D0F]" />
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(0,0,0,0.4)_100%)]" />
-        </motion.div>
+          </motion.div>
+        </div>
 
         <div className="relative h-full flex flex-col z-30">
           <Navbar />
