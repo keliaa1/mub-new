@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Menu, X, Globe, ChevronDown, Home, Info, Shield, CreditCard, Moon, Sun } from 'lucide-react';
+import { Menu, X, Globe, ChevronDown, Moon, Sun } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { useLanguage } from '../context/LanguageContext';
 import { Link } from 'react-router-dom';
@@ -34,13 +34,12 @@ const Navbar = () => {
   };
 
   const navItems = [
-    { name: t('nav.home'), href: '/', icon: <Home size={18} /> },
-    { name: t('nav.whyChooseUs'), href: '/#why-choose-us', icon: <Info size={18} /> },
-    { name: t('nav.benefits'), href: '/#benefits', icon: <Shield size={18} /> },
-    { name: t('nav.pricing'), href: '/#pricing', icon: <CreditCard size={18} /> },
+    { name: t('nav.home'), href: '/' },
+    { name: t('nav.whyChooseUs'), href: '/#why-choose-us' },
+    { name: t('nav.benefits'), href: '/#benefits' },
+    { name: t('nav.pricing'), href: '/#pricing' },
   ];
 
-  // Prevent scroll when mobile menu is open
   useEffect(() => {
     if (isMobileMenuOpen) {
       document.body.style.overflow = 'hidden';
@@ -54,16 +53,15 @@ const Navbar = () => {
       initial={{ y: -20, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.8 }}
-      className="w-full max-w-7xl mx-auto px-6 md:px-8 py-6 relative z-50"
+      className="w-full max-w-7xl mx-auto px-6 md:px-8 py-6 relative z-50 flex items-center justify-between"
     >
-      <div className="flex items-center justify-between">
-        {/* Logo */}
-        <Link to="/" className="flex items-center gap-3 z-50">
-          <img src="/logo.webp" alt="My USA Business" className="h-10 md:h-12 w-auto object-contain" />
-        </Link>
+      <Link to="/" className="flex items-center gap-3 z-50 relative">
+        <span className="text-xl font-bold tracking-tighter text-[#111] dark:text-[#eee]">MY USA BIZ</span>
+      </Link>
 
-        {/* Desktop Menu */}
-        <div className="hidden md:flex items-center gap-8 dark:bg-white/5 bg-black/5 backdrop-blur-xl px-8 py-3 rounded-full border dark:border-white/10 border-black/10 shadow-2xl">
+      {/* Desktop Menu */}
+      <div className="hidden md:flex items-center gap-10">
+        <div className="flex items-center gap-8">
           {navItems.map((item, i) => (
             <motion.div
               key={item.name}
@@ -75,44 +73,45 @@ const Navbar = () => {
                 to={item.href}
                 smooth
                 className={({ isActive }: any) => 
-                  `dark:text-gray-300 text-slate-700 hover:dark:text-white text-slate-900 transition-colors font-medium relative group text-sm ${isActive ? 'text-[#3c3b6e]' : ''}`
+                  `text-sm font-medium transition-colors ${isActive ? 'text-[#111] dark:text-white' : 'text-gray-500 hover:text-[#111] dark:hover:text-white'}`
                 }
               >
                 {item.name}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#3c3b6e] transition-all group-hover:w-full" />
               </NavHashLink>
             </motion.div>
           ))}
+        </div>
 
-          <div className="w-px h-4 dark:bg-white/10 bg-black/10 mx-2" />
+        <div className="w-px h-4 bg-black/10 dark:bg-white/10" />
 
-          {/* Language Selector Desktop */}
+        <div className="flex items-center gap-6">
+          {/* Language Selector */}
           <div className="relative">
             <button
               onClick={() => setIsLangOpen(!isLangOpen)}
-              className="flex items-center gap-2 dark:text-gray-300 text-slate-700 hover:dark:text-white text-slate-900 transition-colors font-medium text-sm"
+              className="flex items-center gap-2 text-sm font-medium text-gray-500 hover:text-[#111] dark:hover:text-white transition-colors"
             >
-              <Globe size={16} />
+              <Globe size={14} />
               <span>{language}</span>
-              <ChevronDown size={14} className={`transition-transform duration-300 ${isLangOpen ? 'rotate-180' : ''}`} />
+              <ChevronDown size={12} className={`transition-transform duration-300 ${isLangOpen ? 'rotate-180' : ''}`} />
             </button>
 
             <AnimatePresence>
               {isLangOpen && (
                 <motion.div 
-                  initial={{ opacity: 0, y: 10, scale: 0.95 }}
-                  animate={{ opacity: 1, y: 0, scale: 1 }}
-                  exit={{ opacity: 0, y: 10, scale: 0.95 }}
-                  className="absolute top-full right-0 mt-4 w-40 dark:bg-[#0B0D0F] bg-slate-50/95 backdrop-blur-2xl rounded-2xl shadow-3xl overflow-hidden border dark:border-white/10 border-black/10 p-2"
+                  initial={{ opacity: 0, y: 5 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 5 }}
+                  className="absolute top-full right-0 mt-2 w-32 bg-white dark:bg-[#111] border border-black/10 dark:border-white/10 shadow-xl overflow-hidden z-[100]"
                 >
                   <button
-                    className={`w-full text-left px-4 py-2.5 rounded-xl transition-all ${language === 'EN' ? 'bg-[#3c3b6e] dark:text-white text-slate-900' : 'hover:dark:bg-white/5 bg-black/5 dark:text-gray-400 text-slate-600'}`}
+                    className={`w-full text-left px-4 py-2.5 text-xs font-medium transition-colors ${language === 'EN' ? 'bg-gray-50 dark:bg-white/10 text-[#111] dark:text-white' : 'text-gray-500 hover:bg-gray-50 dark:hover:bg-white/5'}`}
                     onClick={() => { setLanguage('EN'); setIsLangOpen(false); }}
                   >
                     English
                   </button>
                   <button
-                    className={`w-full text-left px-4 py-2.5 rounded-xl transition-all ${language === 'ES' ? 'bg-[#3c3b6e] dark:text-white text-slate-900' : 'hover:dark:bg-white/5 bg-black/5 dark:text-gray-400 text-slate-600'}`}
+                    className={`w-full text-left px-4 py-2.5 text-xs font-medium transition-colors border-t border-black/5 dark:border-white/5 ${language === 'ES' ? 'bg-gray-50 dark:bg-white/10 text-[#111] dark:text-white' : 'text-gray-500 hover:bg-gray-50 dark:hover:bg-white/5'}`}
                     onClick={() => { setLanguage('ES'); setIsLangOpen(false); }}
                   >
                     Español
@@ -122,82 +121,83 @@ const Navbar = () => {
             </AnimatePresence>
           </div>
 
-          <button onClick={toggleTheme} className="ml-2 flex items-center justify-center w-8 h-8 rounded-full dark:bg-white/5 bg-black/5 hover:dark:bg-white/10 bg-black/10 border dark:border-white/10 border-black/10 dark:text-gray-300 text-slate-700 hover:dark:text-white text-slate-900 transition-all">
-            {isDark ? <Sun size={14} /> : <Moon size={14} />}
+          {/* Theme Toggle */}
+          <button 
+            onClick={toggleTheme} 
+            className="text-gray-500 hover:text-[#111] dark:hover:text-white transition-colors"
+          >
+            {isDark ? <Sun size={16} /> : <Moon size={16} />}
           </button>
         </div>
-
-        {/* Mobile Menu Button */}
-        <button
-          className="md:hidden z-50 w-12 h-12 flex items-center justify-center rounded-2xl dark:bg-white/5 bg-black/5 border dark:border-white/10 border-black/10 dark:text-white text-slate-900 transition-all hover:dark:bg-white/10 bg-black/10 active:scale-95"
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-        >
-          {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
       </div>
+
+      {/* Mobile Menu Button */}
+      <button
+        className="md:hidden z-50 text-[#111] dark:text-[#eee]"
+        onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+      >
+        {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+      </button>
 
       {/* Mobile Menu Overlay */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div 
-            initial={{ opacity: 0, x: '100%' }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: '100%' }}
-            transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-            className="fixed inset-0 z-40 dark:bg-[#0B0D0F] bg-slate-50 md:hidden flex flex-col p-8 pt-32"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-40 bg-white dark:bg-[#050505] md:hidden flex flex-col p-8 pt-32"
           >
-            <div className="flex flex-col gap-4">
+            <div className="flex flex-col gap-6">
               {navItems.map((item, i) => (
                 <motion.div
                   key={item.name}
-                  initial={{ opacity: 0, x: 20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.1 * i }}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.05 * i }}
                 >
                   <NavHashLink
                     to={item.href}
                     smooth
-                    className={({ isActive }: any) => 
-                      `flex items-center gap-4 p-4 rounded-2xl dark:bg-white/5 bg-black/5 border dark:border-white/5 border-black/5 text-xl font-semibold transition-all ${isActive ? 'bg-[#3c3b6e]/20 border-[#3c3b6e]/50 text-[#3c3b6e] dark:text-white' : 'dark:text-white text-slate-900 hover:bg-[#3c3b6e]/20 hover:border-[#3c3b6e]/50'}`
-                    }
+                    className="text-2xl font-medium text-[#111] dark:text-[#eee] tracking-tight block border-b border-black/5 dark:border-white/5 pb-4"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
-                    <span className="p-3 rounded-xl dark:bg-white/5 bg-black/5 text-[#3c3b6e] group-hover:bg-[#3c3b6e] group-hover:dark:text-white text-slate-900 transition-all">
-                      {item.icon}
-                    </span>
                     {item.name}
                   </NavHashLink>
                 </motion.div>
               ))}
             </div>
 
-            <div className="mt-auto pb-12">
-              <p className="text-sm font-bold uppercase tracking-widest dark:text-gray-500 text-slate-500 mb-6">{t('nav.language')}</p>
-              <div className="grid grid-cols-2 gap-4">
-                <button
-                  className={`flex flex-col items-center gap-2 p-4 rounded-2xl border transition-all ${language === 'EN' ? 'bg-[#3c3b6e]/20 border-[#3c3b6e] dark:text-white text-slate-900 shadow-[0_0_20px_rgba(60,59,110,0.3)]' : 'dark:bg-white/5 bg-black/5 dark:border-white/10 border-black/10 dark:text-gray-400 text-slate-600'}`}
-                  onClick={() => { setLanguage('EN'); setIsMobileMenuOpen(false); }}
-                >
-                  <span className="text-2xl">🇺🇸</span>
-                  <span className="font-semibold">English</span>
-                </button>
-                <button
-                  className={`flex flex-col items-center gap-2 p-4 rounded-2xl border transition-all ${language === 'ES' ? 'bg-[#3c3b6e]/20 border-[#3c3b6e] dark:text-white text-slate-900 shadow-[0_0_20px_rgba(60,59,110,0.3)]' : 'dark:bg-white/5 bg-black/5 dark:border-white/10 border-black/10 dark:text-gray-400 text-slate-600'}`}
-                  onClick={() => { setLanguage('ES'); setIsMobileMenuOpen(false); }}
-                >
-                  <span className="text-2xl">🇪🇸</span>
-                  <span className="font-semibold">Español</span>
-                </button>
+            <div className="mt-auto pb-12 flex flex-col gap-8">
+              <div>
+                <p className="text-xs font-mono uppercase tracking-widest text-gray-400 mb-4">{t('nav.language')}</p>
+                <div className="flex gap-4">
+                  <button
+                    className={`flex-1 py-3 text-sm font-medium border transition-colors ${language === 'EN' ? 'border-[#111] dark:border-white text-[#111] dark:text-white' : 'border-black/10 dark:border-white/10 text-gray-500'}`}
+                    onClick={() => { setLanguage('EN'); setIsMobileMenuOpen(false); }}
+                  >
+                    English
+                  </button>
+                  <button
+                    className={`flex-1 py-3 text-sm font-medium border transition-colors ${language === 'ES' ? 'border-[#111] dark:border-white text-[#111] dark:text-white' : 'border-black/10 dark:border-white/10 text-gray-500'}`}
+                    onClick={() => { setLanguage('ES'); setIsMobileMenuOpen(false); }}
+                  >
+                    Español
+                  </button>
+                </div>
               </div>
-              <button onClick={toggleTheme} className="mt-6 w-full flex items-center justify-center gap-2 p-4 rounded-2xl dark:bg-white/5 bg-black/5 border dark:border-white/10 border-black/10 dark:text-white text-slate-900 font-semibold hover:dark:bg-white/10 bg-black/10 transition-all">
+              <button 
+                onClick={toggleTheme} 
+                className="w-full py-4 border border-black/10 dark:border-white/10 text-[#111] dark:text-[#eee] text-sm font-medium flex items-center justify-center gap-2"
+              >
                 {isDark ? (
                   <>
-                    <Sun size={20} className="text-yellow-400" />
+                    <Sun size={16} />
                     <span>Switch to Light Mode</span>
                   </>
                 ) : (
                   <>
-                    <Moon size={20} className="dark:text-gray-300 text-slate-700" />
+                    <Moon size={16} />
                     <span>Switch to Dark Mode</span>
                   </>
                 )}
