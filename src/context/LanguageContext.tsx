@@ -54,7 +54,7 @@ const translations: Record<Language, Record<string, string>> = {
     'pricing.tag': 'Most Popular',
     'pricing.sub': 'Full Asset Protection. Global Enterprises.',
     'pricing.price': '$4,900',
-    'pricing.period': '/ONE-TIME',
+    'pricing.period': '/YEAR',
     'pricing.feature1': 'Everything in Standard',
     'pricing.feature2': 'Nominee Directors',
     'pricing.feature3': 'Banking Intro',
@@ -64,7 +64,7 @@ const translations: Record<Language, Record<string, string>> = {
     // Footer
     'footer.headquarters': 'Our corporate \nheadquarters',
     'footer.miami_desc': 'Centrally located in the heart of Miami\'s financial district. Operations and headquarters center.',
-    'footer.vegas_desc': 'Our Las Vegas headquarters providing operational support and business management services.',
+    'footer.vegas_desc': 'Our Las Vegas headquarters providing operational support and internal KYC processes.',
     'footer.panama_desc': 'Our Panama hub in the Oceania Business Plaza serves as our strategic bridge for Latin American founders.',
     'footer.description': 'Empowering international entrepreneurs to launch and manage successful businesses in the United States. Your global partner in corporate formation.',
     'footer.features': 'Features',
@@ -123,19 +123,19 @@ const translations: Record<Language, Record<string, string>> = {
 
     // Why Choose Us
     'why.expertise': 'Our Expertise',
-    'why.title1': 'Why Founders Choose',
+    'why.title1': 'Why founders choose',
     'why.title2': 'My USA Business',
     'why.trust_title': 'Trusted Partnerships',
     'why.trust_desc': 'We\'ve helped over 5,000 founders from 120+ countries launch their US dream successfully.',
     
     // Notifications
-    'why.guidance': 'Expert Guidance',
+    'why.guidance': 'Expert guidance',
     'why.guidance_desc': 'Personalized US business advisory.',
     'why.remote': '100% Remote',
     'why.remote_desc': 'No US travel required ever.',
-    'why.ein': 'Fast EIN Setup',
+    'why.ein': 'Fast EIN setup',
     'why.ein_desc': 'Direct IRS filing in record time.',
-    'why.compliance': 'Legal Compliance',
+    'why.compliance': 'Legal compliance',
     'why.compliance_desc': 'Registered Agent & Annual Filings.',
     'why.time1': 'Just now',
     'why.time2': '2m ago',
@@ -150,7 +150,7 @@ const translations: Record<Language, Record<string, string>> = {
     'pricing.proceed': 'Proceed with',
     
     'pricing.feature.filing_fees': 'State Filing Fees Included',
-    'pricing.feature.registered_agent': 'Registered Agent (1st Year)',
+    'pricing.feature.registered_agent': 'Registered Agent',
     'pricing.feature.operating_agreement': 'Operating Agreement',
     'pricing.feature.ein': 'EIN (Tax ID) Application',
     'pricing.feature.banking': 'Banking Introduction',
@@ -226,7 +226,7 @@ const translations: Record<Language, Record<string, string>> = {
     'pricing.tag': 'Más Popular',
     'pricing.sub': 'Protección total de activos. Empresas Globales.',
     'pricing.price': '$4,900',
-    'pricing.period': '/ÚNICO PAGO',
+    'pricing.period': '/AÑO',
     'pricing.feature1': 'Todo en el Estándar',
     'pricing.feature2': 'Directores Nominales',
     'pricing.feature3': 'Introducción Bancaria',
@@ -234,9 +234,9 @@ const translations: Record<Language, Record<string, string>> = {
     'pricing.cta': 'Ver Plan',
 
     // Footer
-    'footer.headquarters': 'Nuestra sede \ncorporativa',
+    'footer.headquarters': 'Presencia en todo el país.',
     'footer.miami_desc': 'Ubicación central en el corazón del distrito financiero de Miami. Centro de operaciones y sede.',
-    'footer.vegas_desc': 'Nuestra sede de Las Vegas brinda soporte operativo y servicios de gestión empresarial.',
+    'footer.vegas_desc': 'Nuestra sede de Las Vegas brinda soporte operativo y procesos internos de KYC.',
     'footer.panama_desc': 'Nuestro centro de Panamá en Oceania Business Plaza sirve como nuestro puente estratégico para los fundadores latinoamericanos.',
     'footer.description': 'Empoderando a emprendedores internacionales para lanzar y administrar negocios exitosos en los Estados Unidos. Su socio global en formación corporativa.',
     'footer.features': 'Características',
@@ -275,18 +275,18 @@ const translations: Record<Language, Record<string, string>> = {
 
     // Why Choose Us ES
     'why.expertise': 'Nuestra Experiencia',
-    'why.title1': 'Por Qué los Fundadores Eligen',
+    'why.title1': 'Por qué los fundadores eligen',
     'why.title2': 'My USA Business',
     'why.trust_title': 'Asociaciones de Confianza',
     'why.trust_desc': 'Hemos ayudado a más de 5000 fundadores de más de 120 países a lanzar con éxito su sueño americano.',
     
-    'why.guidance': 'Orientación Experta',
+    'why.guidance': 'Orientación experta',
     'why.guidance_desc': 'Asesoría empresarial personalizada en EE. UU.',
     'why.remote': '100% Remoto',
     'why.remote_desc': 'No se requiere viajar a EE. UU.',
-    'why.ein': 'Configuración Rápida de EIN',
+    'why.ein': 'Configuración rápida de EIN',
     'why.ein_desc': 'Presentación directa al IRS en tiempo récord.',
-    'why.compliance': 'Cumplimiento Legal',
+    'why.compliance': 'Cumplimiento legal',
     'why.compliance_desc': 'Agente Registrado y Presentaciones Anuales.',
     'why.time1': 'Justo ahora',
     'why.time2': 'hace 2 min',
@@ -301,7 +301,7 @@ const translations: Record<Language, Record<string, string>> = {
     'pricing.proceed': 'Continuar con',
     
     'pricing.feature.filing_fees': 'Tarifas de Presentación Estatales Incluidas',
-    'pricing.feature.registered_agent': 'Agente Registrado (1er Año)',
+    'pricing.feature.registered_agent': 'Agente Registrado',
     'pricing.feature.operating_agreement': 'Acuerdo Operativo',
     'pricing.feature.ein': 'Solicitud de EIN (ID Fiscal)',
     'pricing.feature.banking': 'Introducción Bancaria',
@@ -325,7 +325,7 @@ const translations: Record<Language, Record<string, string>> = {
 };
 
 export const LanguageProvider = ({ children }: { children: ReactNode }) => {
-  const [language, setLanguage] = useState<Language>('EN');
+  const [language, setLanguage] = useState<Language>('ES');
 
   const t = (key: string) => {
     return translations[language][key] || key;

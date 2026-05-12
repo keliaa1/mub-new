@@ -1,6 +1,5 @@
-import { useRef } from 'react';
-import { motion, useInView } from 'motion/react';
-import { AnimatedList } from './AnimatedList';
+import { motion } from 'motion/react';
+
 import { Shield, Zap, Globe, CheckCircle2 } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
@@ -28,8 +27,6 @@ const Notification = ({ name, description, icon, color, time }: any) => {
 };
 
 const WhyChooseUs = () => {
-  const containerRef = useRef(null);
-  const isInView = useInView(containerRef, { once: true, amount: 0.3 });
   const { t } = useLanguage();
 
   const notifications = [
@@ -64,7 +61,7 @@ const WhyChooseUs = () => {
   ];
 
   return (
-    <section id="why-choose-us" ref={containerRef} className="py-24 dark:bg-[#0B0D0F] bg-slate-50">
+    <section id="why-choose-us" className="py-24 dark:bg-[#0B0D0F] bg-slate-50">
       <div className="max-w-7xl mx-auto px-6 md:px-8">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
 
@@ -105,11 +102,11 @@ const WhyChooseUs = () => {
             </motion.div>
 
             <div className="relative w-full max-w-[500px]">
-              <AnimatedList delay={500} start={isInView}>
+              <div className="flex flex-col gap-4">
                 {notifications.map((item, idx) => (
                   <Notification {...item} key={idx} />
                 ))}
-              </AnimatedList>
+              </div>
 
               {/* Subtle background glow */}
               <div className="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-[#3c3b6e]/10 blur-[100px] rounded-full" />

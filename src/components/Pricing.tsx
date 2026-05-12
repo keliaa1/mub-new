@@ -22,8 +22,7 @@ const Pricing = () => {
       t('pricing.feature.registered_agent'),
       t('pricing.feature.operating_agreement'),
       t('pricing.feature.ein'),
-      t('pricing.feature.banking'),
-      t('pricing.feature.kit')
+      t('pricing.feature.banking')
     ];
 
     const stateData = usStates.map(stateName => {
@@ -31,48 +30,48 @@ const Pricing = () => {
       
       if (id === 'wyoming') {
         return {
-          id, name: stateName, price: '$600', period: 'ONE-TIME', tag: t('pricing.tag.popular'),
+          id, name: stateName, price: '$600', period: 'YEAR', tag: t('pricing.tag.popular'),
           badge: 'Wyoming LLC', sub: t('pricing.sub.wyoming'),
           features: baseFeatures
         };
       }
       if (id === 'delaware') {
         return {
-          id, name: stateName, price: '$600', period: 'ONE-TIME', tag: t('pricing.tag.investor'),
+          id, name: stateName, price: '$600', period: 'YEAR', tag: t('pricing.tag.investor'),
           badge: 'Delaware LLC', sub: t('pricing.sub.delaware'),
           features: [
             t('pricing.feature.filing_fees'), t('pricing.feature.registered_agent'), t('pricing.feature.operating_agreement'),
-            t('pricing.feature.ein'), t('pricing.feature.resolution'), t('pricing.feature.banking'), t('pricing.feature.kit')
+            t('pricing.feature.ein'), t('pricing.feature.resolution'), t('pricing.feature.banking')
           ]
         };
       }
       if (id === 'new_mexico') {
         return {
-          id, name: stateName, price: '$500', period: 'ONE-TIME', tag: t('pricing.tag.value'),
+          id, name: stateName, price: '$500', period: 'YEAR', tag: t('pricing.tag.value'),
           badge: 'New Mexico LLC', sub: t('pricing.sub.new_mexico'),
           features: baseFeatures
         };
       }
       if (id === 'florida') {
         return {
-          id, name: stateName, price: '$600', period: 'ONE-TIME', tag: t('pricing.tag.sunshine'),
+          id, name: stateName, price: '$600', period: 'YEAR', tag: t('pricing.tag.sunshine'),
           badge: 'Florida LLC', sub: t('pricing.sub.florida'),
           features: [
             t('pricing.feature.filing_fees'), t('pricing.feature.registered_agent'), t('pricing.feature.operating_agreement'),
-            t('pricing.feature.ein'), t('pricing.feature.bank_resolution'), t('pricing.feature.banking'), t('pricing.feature.kit')
+            t('pricing.feature.ein'), t('pricing.feature.bank_resolution'), t('pricing.feature.banking')
           ]
         };
       }
       if (id === 'texas') {
         return {
-          id, name: stateName, price: '$700', period: 'ONE-TIME', tag: t('pricing.tag.lonestar'),
+          id, name: stateName, price: '$700', period: 'YEAR', tag: t('pricing.tag.lonestar'),
           badge: 'Texas LLC', sub: t('pricing.sub.texas'),
           features: baseFeatures
         };
       }
       
       return {
-        id, name: stateName, price: '$600', period: 'ONE-TIME', tag: '',
+        id, name: stateName, price: '$600', period: 'YEAR', tag: '',
         badge: `${stateName} LLC`, sub: `${t('pricing.sub.default')} ${stateName}.`,
         features: baseFeatures
       };

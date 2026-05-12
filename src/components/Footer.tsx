@@ -47,7 +47,7 @@ const Footer = () => {
   const locations = {
     usa: {
       name: t('branch.usa'),
-      address: "1000 Brickell Ave, Miami, FL 33131, USA",
+      address: "1000 Brickell Avenue",
       map: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3592.8317765104686!2d-80.19169602381283!3d25.772095677342894!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88d9b69998818817%3A0xc34a6e8f4955f3a0!2s1000%20Brickell%20Ave%2C%20Miami%2C%20FL%2033131%2C%20USA!5e0!3m2!1sen!2sus!4v1715012345678!5m2!1sen!2sus",
       description: t('footer.miami_desc')
     },
@@ -152,7 +152,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 pb-16">
           <div className="lg:col-span-2 flex flex-col gap-6">
             <Link to="/" className="flex items-center">
-              <img src="/logo.webp" alt="My USA Business" className="h-10 w-auto object-contain" />
+              <img src="/logo.webp" alt="My USA Business" className="h-16 w-auto object-contain" />
             </Link>
             <p className="dark:text-gray-400 text-slate-600 max-w-sm leading-relaxed">
               {t('footer.description')}
@@ -187,14 +187,14 @@ const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 border-t dark:border-white/5 border-black/5 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="dark:text-gray-500 text-slate-500 text-sm">
-            © 2026 My USA Business. {t('footer.rights')}
-          </p>
+        <div className="pt-8 border-t dark:border-white/5 border-black/5 flex flex-col items-center justify-center gap-6">
           <div className="flex gap-8 text-sm dark:text-gray-500 text-slate-500">
             <Link to="/security" className="hover:dark:text-white text-slate-900 transition-colors">{t('footer.security')}</Link>
             <Link to="/sitemap" className="hover:dark:text-white text-slate-900 transition-colors">{t('footer.sitemap')}</Link>
           </div>
+          <p className="dark:text-gray-500 text-slate-500 text-sm text-center">
+            © 2026 My USA Business. {t('footer.rights')}
+          </p>
         </div>
       </div>
     </footer>

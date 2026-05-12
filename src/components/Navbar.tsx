@@ -19,6 +19,9 @@ const Navbar = () => {
     } else {
       setIsDark(false);
       document.documentElement.classList.remove('dark');
+      if (!savedTheme) {
+        localStorage.setItem('theme', 'light');
+      }
     }
   }, []);
 
