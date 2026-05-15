@@ -21,10 +21,10 @@ const Home = () => {
       <SmoothCursor />
       <Hero selectedState={selectedState} setSelectedState={setSelectedState} />
       <QuickBenefits />
+      <Pricing heroSelectedState={selectedState} />
       <WhyChooseUs />
       <Benefits />
       <Testimonials />
-      <Pricing heroSelectedState={selectedState} />
       <PaymentMarquee />
       <Footer />
     </main>
