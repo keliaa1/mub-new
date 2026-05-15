@@ -12,7 +12,7 @@ const usStates = [
   "South Dakota", "Tennessee", "Texas", "Utah", "Vermont", "Virginia", "Washington", "West Virginia", "Wisconsin", "Wyoming"
 ];
 
-const popularStateIds = ['wyoming', 'delaware', 'new_mexico', 'florida', 'texas'];
+const popularStateIds = ['wyoming', 'florida', 'new_mexico'];
 
 const Pricing = ({ heroSelectedState }: { heroSelectedState: string }) => {
   const { t } = useLanguage();
@@ -29,17 +29,19 @@ const Pricing = ({ heroSelectedState }: { heroSelectedState: string }) => {
 
     const stateData = usStates.map(stateName => {
       const id = stateName.toLowerCase().replace(/\s+/g, '_');
+      const isPopular = popularStateIds.includes(id);
+      const finalName = isPopular ? `${stateName} 🔥` : stateName;
       
       if (id === 'wyoming') {
         return {
-          id, name: stateName, price: '$600', period: 'YEAR', tag: t('pricing.tag.popular'),
+          id, name: finalName, price: '$600', period: 'YEAR', tag: t('pricing.tag.popular'),
           badge: 'Wyoming LLC', sub: t('pricing.sub.wyoming'),
           features: baseFeatures
         };
       }
       if (id === 'delaware') {
         return {
-          id, name: stateName, price: '$600', period: 'YEAR', tag: t('pricing.tag.investor'),
+          id, name: finalName, price: '$600', period: 'YEAR', tag: t('pricing.tag.investor'),
           badge: 'Delaware LLC', sub: t('pricing.sub.delaware'),
           features: [
             t('pricing.feature.filing_fees'), t('pricing.feature.registered_agent'), t('pricing.feature.operating_agreement'),
@@ -49,14 +51,14 @@ const Pricing = ({ heroSelectedState }: { heroSelectedState: string }) => {
       }
       if (id === 'new_mexico') {
         return {
-          id, name: stateName, price: '$500', period: 'YEAR', tag: t('pricing.tag.value'),
+          id, name: finalName, price: '$500', period: 'YEAR', tag: t('pricing.tag.value'),
           badge: 'New Mexico LLC', sub: t('pricing.sub.new_mexico'),
           features: baseFeatures
         };
       }
       if (id === 'florida') {
         return {
-          id, name: stateName, price: '$600', period: 'YEAR', tag: t('pricing.tag.sunshine'),
+          id, name: finalName, price: '$600', period: 'YEAR', tag: t('pricing.tag.sunshine'),
           badge: 'Florida LLC', sub: t('pricing.sub.florida'),
           features: [
             t('pricing.feature.filing_fees'), t('pricing.feature.registered_agent'), t('pricing.feature.operating_agreement'),
@@ -66,14 +68,14 @@ const Pricing = ({ heroSelectedState }: { heroSelectedState: string }) => {
       }
       if (id === 'texas') {
         return {
-          id, name: stateName, price: '$700', period: 'YEAR', tag: t('pricing.tag.lonestar'),
+          id, name: finalName, price: '$700', period: 'YEAR', tag: t('pricing.tag.lonestar'),
           badge: 'Texas LLC', sub: t('pricing.sub.texas'),
           features: baseFeatures
         };
       }
       
       return {
-        id, name: stateName, price: '$600', period: 'YEAR', tag: '',
+        id, name: finalName, price: '$600', period: 'YEAR', tag: '',
         badge: `${stateName} LLC`, sub: `${t('pricing.sub.default')} ${stateName}.`,
         features: baseFeatures
       };
@@ -81,7 +83,7 @@ const Pricing = ({ heroSelectedState }: { heroSelectedState: string }) => {
 
     return [
       ...stateData.filter(s => popularStateIds.includes(s.id)).sort((a, b) => popularStateIds.indexOf(a.id) - popularStateIds.indexOf(b.id)),
-      ...stateData.filter(s => !popularStateIds.includes(s.id))
+      ...stateData.filter(s => !popularStateIds.includes(s.id)).sort((a, b) => a.name.localeCompare(b.name))
     ];
   }, [t]);
 

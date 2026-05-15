@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from 'motion/react';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, useMemo } from 'react';
 import Navbar from './Navbar';
 import { useLanguage } from '../context/LanguageContext';
 import { MapPin, ChevronDown, ChevronUp } from 'lucide-react';
@@ -14,11 +14,22 @@ const states = [
   "Virginia", "Washington", "West Virginia", "Wisconsin", "Wyoming"
 ];
 
+const popularStates = ["Wyoming", "Florida", "New Mexico"];
+
 const Hero = ({ selectedState, setSelectedState }: { selectedState: string, setSelectedState: (val: string) => void }) => {
   const { t } = useLanguage();
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isStateDropdownOpen, setIsStateDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+
+  const sortedStates = useMemo(() => {
+    const popular = states.filter(s => popularStates.includes(s))
+      .sort((a, b) => popularStates.indexOf(a) - popularStates.indexOf(b))
+      .map(s => `${s} 🔥`);
+    const rest = states.filter(s => !popularStates.includes(s))
+      .sort((a, b) => a.localeCompare(b));
+    return [...popular, ...rest];
+  }, []);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -124,7 +135,7 @@ const Hero = ({ selectedState, setSelectedState }: { selectedState: string, setS
                       className="absolute top-full left-0 w-full mt-1 bg-white dark:bg-[#111] border border-black/10 dark:border-white/10 shadow-2xl z-[100]"
                     >
                       <div className="overflow-y-auto max-h-64 custom-scrollbar">
-                        {states.map((state) => (
+                        {sortedStates.map((state) => (
                           <button
                             key={state}
                             onClick={() => {
