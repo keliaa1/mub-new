@@ -10,7 +10,7 @@ const LLCFormation = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
         <div className="space-y-8">
           <section>
-            <h2 className="text-2xl font-bold dark:text-white text-slate-900 mb-4">Why Form a US LLC?</h2>
+            <h2 className="text-2xl font-bold dark:text-white text-slate-900 mb-4">Why form a US LLC?</h2>
             <p className="dark:text-gray-400 text-slate-600 leading-relaxed mb-6">
               A Limited Liability Company (LLC) is the gold standard for international founders. It provides a robust legal shield for your personal assets while offering the flexibility of pass-through taxation.
             </p>
@@ -32,7 +32,7 @@ const LLCFormation = () => {
           <section className="p-8 rounded-3xl dark:bg-white/5 bg-black/5 border dark:border-white/10 border-black/10">
             <h3 className="text-xl font-bold dark:text-white text-slate-900 mb-4 flex items-center gap-2">
               <Shield className="w-6 h-6 text-[#3c3b6e]" />
-              Our Security Guarantee
+              Our security guarantee
             </h3>
             <p className="dark:text-gray-400 text-slate-600 text-sm leading-relaxed">
               Every formation is reviewed by our legal compliance team to ensure 100% adherence to state and federal laws. We handle the paperwork, you handle the growth.
@@ -47,7 +47,7 @@ const LLCFormation = () => {
             className="rounded-[40px] shadow-2xl"
           />
           <div className="absolute -bottom-8 -left-8 p-8 rounded-3xl bg-[#3c3b6e] text-white shadow-xl max-w-xs">
-            <p className="text-lg font-bold mb-2 tracking-tight">Ready in 24-48 Hours</p>
+            <p className="text-lg font-bold mb-2 tracking-tight">Ready in 24-48 hours</p>
             <p className="text-sm opacity-80 leading-relaxed">Our digital-first process ensures your articles are filed and returned in record time.</p>
           </div>
         </div>

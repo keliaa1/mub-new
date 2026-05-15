@@ -14,11 +14,10 @@ const states = [
   "Virginia", "Washington", "West Virginia", "Wisconsin", "Wyoming"
 ];
 
-const Hero = () => {
+const Hero = ({ selectedState, setSelectedState }: { selectedState: string, setSelectedState: (val: string) => void }) => {
   const { t } = useLanguage();
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isStateDropdownOpen, setIsStateDropdownOpen] = useState(false);
-  const [selectedState, setSelectedState] = useState("");
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -102,16 +101,7 @@ const Hero = () => {
               transition={{ duration: 0.8, delay: 0.6 }}
               className="lg:col-span-4 flex flex-col gap-4 lg:mt-32 w-full max-w-sm"
             >
-              <button className="w-full px-6 py-4 bg-[#111] dark:bg-[#eee] text-white dark:text-[#111] text-sm font-medium hover:bg-gray-800 dark:hover:bg-white transition-colors flex items-center justify-between group">
-                <span>{t('hero.btn1')}</span>
-                <span className="transition-transform group-hover:translate-x-1">→</span>
-              </button>
-
-              <button className="w-full px-6 py-4 border border-black/10 dark:border-white/10 text-[#111] dark:text-[#eee] text-sm font-medium hover:bg-gray-50 dark:hover:bg-white/5 transition-colors">
-                {t('hero.btn2')}
-              </button>
-
-              <div className="relative w-full mt-4" ref={dropdownRef}>
+              <div className="relative w-full" ref={dropdownRef}>
                 <button
                   onClick={() => setIsStateDropdownOpen(!isStateDropdownOpen)}
                   className="w-full flex items-center justify-between border-b border-black/20 dark:border-white/20 py-4 group transition-all"
@@ -140,6 +130,11 @@ const Hero = () => {
                             onClick={() => {
                               setSelectedState(state);
                               setIsStateDropdownOpen(false);
+                              // Smooth scroll to pricing
+                              const pricingElement = document.getElementById('pricing');
+                              if (pricingElement) {
+                                pricingElement.scrollIntoView({ behavior: 'smooth' });
+                              }
                             }}
                             className={`w-full text-left px-4 py-3 text-sm transition-colors border-b border-black/5 dark:border-white/5 last:border-0 ${
                               selectedState === state
@@ -155,6 +150,20 @@ const Hero = () => {
                   )}
                 </AnimatePresence>
               </div>
+
+              <button
+                onClick={() => {
+                  const pricingElement = document.getElementById('pricing');
+                  if (pricingElement) {
+                    pricingElement.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
+                id="hero-start-btn"
+                className="w-full px-6 py-4 bg-[#111] dark:bg-[#eee] text-white dark:text-[#111] text-sm font-medium hover:bg-gray-800 dark:hover:bg-white transition-colors flex items-center justify-between group mt-4"
+              >
+                <span>{t('hero.btn1')}</span>
+                <span className="transition-transform group-hover:translate-x-1">→</span>
+              </button>
             </motion.div>
           </div>
         </div>

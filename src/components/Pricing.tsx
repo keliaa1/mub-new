@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect, useMemo } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
+import { useNavigate } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
 import { ChevronDown, Check } from 'lucide-react';
 
@@ -13,8 +14,9 @@ const usStates = [
 
 const popularStateIds = ['wyoming', 'delaware', 'new_mexico', 'florida', 'texas'];
 
-const Pricing = () => {
+const Pricing = ({ heroSelectedState }: { heroSelectedState: string }) => {
   const { t } = useLanguage();
+  const navigate = useNavigate();
   
   const sortedStateData = useMemo(() => {
     const baseFeatures = [
@@ -90,6 +92,15 @@ const Pricing = () => {
   useEffect(() => {
     setSelectedState((prev) => sortedStateData.find(s => s.id === prev.id) || sortedStateData[0]);
   }, [sortedStateData]);
+
+  useEffect(() => {
+    if (heroSelectedState) {
+      const stateObj = sortedStateData.find(s => s.name === heroSelectedState);
+      if (stateObj) {
+        setSelectedState(stateObj);
+      }
+    }
+  }, [heroSelectedState, sortedStateData]);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -214,7 +225,10 @@ const Pricing = () => {
                   </ul>
                 </div>
 
-                <button className="w-full py-5 bg-[#111] dark:bg-[#eee] text-white dark:text-[#111] text-sm font-medium hover:bg-gray-800 dark:hover:bg-white transition-colors flex justify-center items-center gap-2 group">
+                <button 
+                  onClick={() => navigate(`/payment?state=${selectedState.id}`)}
+                  className="w-full py-5 bg-[#111] dark:bg-[#eee] text-white dark:text-[#111] text-sm font-medium hover:bg-gray-800 dark:hover:bg-white transition-colors flex justify-center items-center gap-2 group"
+                >
                   <span>{t('pricing.proceed')} {selectedState.name}</span>
                   <span className="transition-transform group-hover:translate-x-1">→</span>
                 </button>

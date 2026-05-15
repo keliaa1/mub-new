@@ -32,7 +32,7 @@ const EINRegistration = () => {
           <section className="p-8 rounded-3xl dark:bg-[#3c3b6e]/10 bg-[#3c3b6e]/5 border border-[#3c3b6e]/20">
             <h3 className="text-xl font-bold dark:text-white text-slate-900 mb-4 flex items-center gap-2">
               <Clock className="w-6 h-6 text-[#3c3b6e]" />
-              Express Processing
+              Express processing
             </h3>
             <p className="dark:text-gray-400 text-slate-600 text-sm leading-relaxed">
               For non-residents without an SSN, the process can take weeks. We utilize our direct channels to expedite your filing and get your EIN in record time.

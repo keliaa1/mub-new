@@ -3,24 +3,18 @@ import { motion } from 'motion/react';
 import { Shield, Zap, Globe, CheckCircle2 } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
-const Notification = ({ name, description, icon, color, time }: any) => {
+const Notification = ({ name, description, icon, color }: any) => {
   return (
-    <div className="flex w-full items-center gap-4 rounded-2xl border dark:border-white/10 border-black/10 dark:bg-white/5 bg-black/5 p-4 backdrop-blur-sm hover:dark:bg-white/10 bg-black/10 transition-colors">
+    <div className="flex w-full items-center gap-4 rounded-2xl border dark:border-white/10 border-black/10 dark:bg-white/5 bg-black/5 p-4 backdrop-blur-sm hover:dark:bg-white/10 transition-colors">
       <div
-        className="flex h-10 w-10 items-center justify-center rounded-xl shadow-lg"
+        className="flex h-10 w-10 items-center justify-center rounded-xl shadow-lg shrink-0"
         style={{ backgroundColor: color }}
       >
         {icon}
       </div>
       <div className="flex flex-col overflow-hidden">
-        <div className="flex flex-row items-center whitespace-pre text-lg font-medium dark:text-white text-slate-900">
+        <div className="text-lg font-medium dark:text-white text-slate-900">
           <span className="text-sm sm:text-base">{name}</span>
-          {time && (
-            <>
-              <span className="mx-1">·</span>
-              <span className="text-xs dark:text-gray-500 text-slate-500">{time}</span>
-            </>
-          )}
         </div>
         <p className="text-xs sm:text-sm dark:text-gray-400 text-slate-600">
           {description}
@@ -37,28 +31,24 @@ const WhyChooseUs = () => {
     {
       name: t('why.guidance'),
       description: t('why.guidance_desc'),
-      time: t('why.time1'),
       icon: <Shield className="w-4 h-4 text-white" />,
       color: "#3c3b6e",
     },
     {
       name: t('why.remote'),
       description: t('why.remote_desc'),
-      time: t('why.time2'),
       icon: <Globe className="w-4 h-4 text-white" />,
       color: "#3c3b6e",
     },
     {
       name: t('why.ein'),
       description: t('why.ein_desc'),
-      time: t('why.time3'),
       icon: <Zap className="w-4 h-4 text-white" />,
       color: "#3c3b6e",
     },
     {
       name: t('why.compliance'),
       description: t('why.compliance_desc'),
-      time: t('why.time4'),
       icon: <CheckCircle2 className="w-4 h-4 text-white" />,
       color: "#3c3b6e",
     },
@@ -84,9 +74,9 @@ const WhyChooseUs = () => {
             />
             <div className="absolute inset-0 bg-gradient-to-t from-[#0B0D0F] via-transparent to-transparent opacity-60" />
 
-            <div className="absolute bottom-8 left-8">
-              <h4 className="text-2xl font-bold dark:text-white text-slate-900 mb-2">{t('why.trust_title')}</h4>
-              <p className="dark:text-gray-400 text-white max-w-sm">{t('why.trust_desc')}</p>
+            <div className="absolute bottom-12 left-0 right-0 px-8 text-center">
+              <h4 className="text-2xl font-bold text-white mb-3">{t('why.trust_title')}</h4>
+              <p className="text-gray-300 max-w-sm mx-auto text-sm leading-relaxed">{t('why.trust_desc')}</p>
             </div>
           </motion.div>
 

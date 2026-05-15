@@ -28,37 +28,37 @@ const translations: Record<Language, Record<string, string>> = {
     'nav.language': 'Language',
     
     // Hero
-    'hero.badge': 'Global Business Solutions',
-    'hero.title1': 'Launch Your.',
-    'hero.title2': 'US Dream.',
+    'hero.badge': 'Global business solutions',
+    'hero.title1': 'Launch your.',
+    'hero.title2': 'US dream.',
     'hero.desc': 'The easiest way for non-residents to start and manage a business in the United States. LLC formation, EIN, and compliance—all in one place.',
     'hero.btn1': 'Start Your Business',
     'hero.btn2': 'How It Works',
     
     // Why Choose Us
-    'why.title': 'Why Global Entrepreneurs Choose Us',
-    'why.speed': 'Lightning Fast Setup',
+    'why.title': 'Why global entrepreneurs choose us',
+    'why.speed': 'Lightning fast setup',
     'why.speed_desc': 'Get your US entity and bank accounts in record time.',
-    'why.support': 'Expert Support',
+    'why.support': 'Expert support',
     'why.support_desc': '24/7 dedicated assistance for all your business needs.',
-    'why.secure': 'Secure & Trusted',
+    'why.secure': 'Secure & trusted',
     'why.secure_desc': 'Your data and business are protected with bank-grade security.',
     
     // Payment Marquee
-    'payment.title': 'Accepted Payment Methods',
+    'payment.title': 'Accepted payment methods',
     
     // Pricing
-    'pricing.title': 'Plans & Pricing',
+    'pricing.title': 'Plans & pricing',
     'pricing.subtitle': 'Transparent offshore solutions with zero hidden costs.',
-    'pricing.badge': 'Executive Pro',
-    'pricing.tag': 'Most Popular',
+    'pricing.badge': 'Executive pro',
+    'pricing.tag': 'Most popular',
     'pricing.sub': 'Full Asset Protection. Global Enterprises.',
     'pricing.price': '$4,900',
     'pricing.period': '/YEAR',
-    'pricing.feature1': 'Everything in Standard',
-    'pricing.feature2': 'Nominee Directors',
-    'pricing.feature3': 'Banking Intro',
-    'pricing.feature4': 'Full Digital Kit',
+    'pricing.feature1': 'Everything in standard',
+    'pricing.feature2': 'Nominee directors',
+    'pricing.feature3': 'Banking intro',
+    'pricing.feature4': 'Full digital kit',
     'pricing.cta': 'View Plan',
 
     // Footer
@@ -75,17 +75,17 @@ const translations: Record<Language, Record<string, string>> = {
     'footer.sitemap': 'Sitemap',
     
     // Quick Benefits
-    'quick.secure': 'Secure Formation',
+    'quick.secure': 'Secure formation',
     'quick.secure_desc': 'State-approved incorporation with full legal protection for your global assets.',
-    'quick.fast': 'Lightning Fast',
+    'quick.fast': 'Lightning fast',
     'quick.fast_desc': 'Documents filed within 24 hours. Get your business up and running in days.',
-    'quick.banking': 'Global Banking',
+    'quick.banking': 'Global banking',
     'quick.banking_desc': 'Assistance with remote US bank account setup through our partner networks.',
-    'quick.online': 'Always Online',
+    'quick.online': 'Always online',
     'quick.online_desc': '24/7 dashboard access to manage your compliance and legal documents.',
 
     // Testimonials
-    'test.title': 'Trusted by Founders Worldwide',
+    'test.title': 'Trusted by founders worldwide',
     'test.subtitle': 'Testimonials',
     'test.review1': 'Starting a US business from Colombia seemed impossible until I found My USA Business. The process was seamless and incredibly fast.',
     'test.review2': 'The EIN acquisition and banking support were life-savers. Highly recommend for any international founder entering the US market.',
@@ -113,19 +113,19 @@ const translations: Record<Language, Record<string, string>> = {
     'branch.vegas': 'Las Vegas',
     
     // Benefits
-    'benefits.subtitle': 'Your Advantages',
-    'benefits.title': 'Expand Your Reach',
+    'benefits.subtitle': 'Your advantages',
+    'benefits.title': 'Expand your reach',
     'benefits.desc': 'Unlock the world\'s largest economy with ease. We handle the paperwork so you can focus on growing your global brand.',
-    'benefits.list1': 'Opening a Bank Account',
+    'benefits.list1': 'Opening a bank account',
     'benefits.list2': 'Create or expand your business into the international market.',
     'benefits.list3': 'Receive payments directly into your account in dollars',
     'benefits.list4': 'Handle deposits, transfers, and withdrawals with ease',
 
     // Why Choose Us
-    'why.expertise': 'Our Expertise',
+    'why.expertise': 'Our expertise',
     'why.title1': 'Why founders choose',
     'why.title2': 'My USA Business',
-    'why.trust_title': 'Trusted Partnerships',
+    'why.trust_title': 'Trusted partnerships',
     'why.trust_desc': 'We\'ve helped over 5,000 founders from 120+ countries launch their US dream successfully.',
     
     // Notifications
@@ -145,24 +145,24 @@ const translations: Record<Language, Record<string, string>> = {
     // Pricing
     'pricing.title_main': 'Transparent offshore solutions.',
     'pricing.desc': 'Select a state to view precise formation costs and included services. We believe in zero hidden fees and absolute clarity.',
-    'pricing.state_selector': 'Formation State',
-    'pricing.features_title': 'Included Features',
+    'pricing.state_selector': 'Formation state',
+    'pricing.features_title': 'Included features',
     'pricing.proceed': 'Proceed with',
     
-    'pricing.feature.filing_fees': 'State Filing Fees Included',
-    'pricing.feature.registered_agent': 'Registered Agent',
-    'pricing.feature.operating_agreement': 'Operating Agreement',
-    'pricing.feature.ein': 'EIN (Tax ID) Application',
-    'pricing.feature.banking': 'Banking Introduction',
-    'pricing.feature.kit': 'Digital Corporate Kit',
-    'pricing.feature.resolution': 'Corporate Resolution',
-    'pricing.feature.bank_resolution': 'Bank Account Resolution',
+    'pricing.feature.filing_fees': 'State filing fees included',
+    'pricing.feature.registered_agent': 'Registered agent',
+    'pricing.feature.operating_agreement': 'Operating agreement',
+    'pricing.feature.ein': 'EIN (Tax ID) application',
+    'pricing.feature.banking': 'Banking introduction',
+    'pricing.feature.kit': 'Digital corporate kit',
+    'pricing.feature.resolution': 'Corporate resolution',
+    'pricing.feature.bank_resolution': 'Bank account resolution',
 
-    'pricing.tag.popular': 'Most Popular',
-    'pricing.tag.investor': 'Investor Friendly',
-    'pricing.tag.value': 'Best Value',
-    'pricing.tag.sunshine': 'Sunshine State',
-    'pricing.tag.lonestar': 'Lone Star State',
+    'pricing.tag.popular': 'Most popular',
+    'pricing.tag.investor': 'Investor friendly',
+    'pricing.tag.value': 'Best value',
+    'pricing.tag.sunshine': 'Sunshine state',
+    'pricing.tag.lonestar': 'Lone Star state',
 
     'pricing.sub.wyoming': 'Privacy & Low Fees. Ideal for Non-Residents.',
     'pricing.sub.delaware': 'Corporate Law Standard. Best for Startups.',
@@ -180,33 +180,33 @@ const translations: Record<Language, Record<string, string>> = {
     'nav.language': 'Idioma',
     
     // Hero
-    'hero.badge': 'Soluciones de Negocios Globales',
-    'hero.title1': 'Lanza Tu.',
-    'hero.title2': 'Sueño Americano.',
+    'hero.badge': 'Soluciones de negocios globales',
+    'hero.title1': 'Lanza tu.',
+    'hero.title2': 'Sueño americano.',
     'hero.desc': 'La forma más fácil para que los no residentes inicien y gestionen un negocio en los Estados Unidos. Formación de LLC, EIN y cumplimiento: todo en un solo lugar.',
     'hero.btn1': 'Inicia Tu Negocio',
     'hero.btn2': 'Cómo Funciona',
     
     // Why Choose Us
-    'why.title': 'Por Qué los Emprendedores Globales nos Eligen',
-    'why.speed': 'Configuración Ultrarrápida',
+    'why.title': 'Por qué los emprendedores globales nos eligen',
+    'why.speed': 'Configuración ultrarrápida',
     'why.speed_desc': 'Obtenga su entidad en EE. UU. y sus cuentas bancarias en un tiempo récord.',
-    'why.support': 'Soporte Experto',
+    'why.support': 'Soporte experto',
     'why.support_desc': 'Asistencia dedicada las 24 horas, los 7 días de la semana para todas sus necesidades comerciales.',
-    'why.secure': 'Seguro y Confiable',
+    'why.secure': 'Seguro y confiable',
     'why.secure_desc': 'Sus datos y su negocio están protegidos con seguridad de nivel bancario.',
     
     // Payment Marquee
-    'payment.title': 'Métodos de Pago Aceptados',
+    'payment.title': 'Métodos de pago aceptados',
     
     // Quick Benefits ES
-    'quick.secure': 'Formación Segura',
+    'quick.secure': 'Formación segura',
     'quick.secure_desc': 'Constitución aprobada por el estado con protección legal total para sus activos globales.',
     'quick.fast': 'Ultrarrápido',
     'quick.fast_desc': 'Documentos presentados en 24 horas. Ponga su negocio en marcha en días.',
-    'quick.banking': 'Banca Global',
+    'quick.banking': 'Banca global',
     'quick.banking_desc': 'Asistencia con la configuración remota de cuentas bancarias en EE. UU. a través de nuestras redes de socios.',
-    'quick.online': 'Siempre en Línea',
+    'quick.online': 'Siempre en línea',
     'quick.online_desc': 'Acceso al panel 24/7 para administrar su cumplimiento y documentos legales.',
 
     // Testimonials ES
@@ -220,17 +220,17 @@ const translations: Record<Language, Record<string, string>> = {
     'test.review6': 'Su apoyo fiscal y de cumplimiento es de primer nivel. Me siento seguro al administrar mi negocio en EE. UU. desde el extranjero sabiendo que me respaldan.',
     
     // Pricing
-    'pricing.title': 'Planes y Precios',
+    'pricing.title': 'Planes y precios',
     'pricing.subtitle': 'Soluciones offshore transparentes sin costos ocultos.',
-    'pricing.badge': 'Ejecutivo Pro',
-    'pricing.tag': 'Más Popular',
+    'pricing.badge': 'Ejecutivo pro',
+    'pricing.tag': 'Más popular',
     'pricing.sub': 'Protección total de activos. Empresas Globales.',
     'pricing.price': '$4,900',
     'pricing.period': '/AÑO',
-    'pricing.feature1': 'Todo en el Estándar',
-    'pricing.feature2': 'Directores Nominales',
-    'pricing.feature3': 'Introducción Bancaria',
-    'pricing.feature4': 'Kit Digital Completo',
+    'pricing.feature1': 'Todo en el estándar',
+    'pricing.feature2': 'Directores nominales',
+    'pricing.feature3': 'Introducción bancaria',
+    'pricing.feature4': 'Kit digital completo',
     'pricing.cta': 'Ver Plan',
 
     // Footer
@@ -265,19 +265,19 @@ const translations: Record<Language, Record<string, string>> = {
     'branch.vegas': 'Las Vegas',
     
     // Benefits ES
-    'benefits.subtitle': 'Tus Ventajas',
-    'benefits.title': 'Expande Tu Alcance',
+    'benefits.subtitle': 'Tus ventajas',
+    'benefits.title': 'Expande tu alcance',
     'benefits.desc': 'Desbloquea la economía más grande del mundo con facilidad. Nosotros nos encargamos del papeleo para que puedas concentrarte en hacer crecer tu marca global.',
-    'benefits.list1': 'Apertura de Cuenta Bancaria',
+    'benefits.list1': 'Apertura de cuenta bancaria',
     'benefits.list2': 'Crea o expande tu negocio en el mercado internacional.',
     'benefits.list3': 'Recibe pagos directamente en tu cuenta en dólares',
     'benefits.list4': 'Maneja depósitos, transferencias y retiros con facilidad',
 
     // Why Choose Us ES
-    'why.expertise': 'Nuestra Experiencia',
-    'why.title1': 'Emprendedores y empresas de todo el mundo eligen',
+    'why.expertise': 'Nuestra experiencia',
+    'why.title1': 'Por qué los fundadores eligen',
     'why.title2': 'My USA Business',
-    'why.trust_title': 'Asociaciones de Confianza',
+    'why.trust_title': 'Asociaciones de confianza',
     'why.trust_desc': 'Hemos ayudado a más de 5000 fundadores de más de 120 países a lanzar con éxito su sueño americano.',
     
     'why.guidance': 'Orientación experta',
@@ -296,24 +296,24 @@ const translations: Record<Language, Record<string, string>> = {
     // Pricing ES
     'pricing.title_main': 'Soluciones empresariales transparentes.',
     'pricing.desc': 'Seleccione un estado para ver los costos exactos de formación y los servicios incluidos. Creemos en cero tarifas ocultas y claridad absoluta.',
-    'pricing.state_selector': 'Estado de Formación',
-    'pricing.features_title': 'Características Incluidas',
+    'pricing.state_selector': 'Estado de formación',
+    'pricing.features_title': 'Características incluidas',
     'pricing.proceed': 'Continuar con',
     
-    'pricing.feature.filing_fees': 'Tarifas de Presentación Estatales Incluidas',
-    'pricing.feature.registered_agent': 'Agente Registrado',
-    'pricing.feature.operating_agreement': 'Acuerdo Operativo',
+    'pricing.feature.filing_fees': 'Tarifas de presentación estatales incluidas',
+    'pricing.feature.registered_agent': 'Agente registrado',
+    'pricing.feature.operating_agreement': 'Acuerdo operativo',
     'pricing.feature.ein': 'Solicitud de EIN (ID Fiscal)',
-    'pricing.feature.banking': 'Introducción Bancaria',
-    'pricing.feature.kit': 'Kit Corporativo Digital',
-    'pricing.feature.resolution': 'Resolución Corporativa',
-    'pricing.feature.bank_resolution': 'Resolución de Cuenta Bancaria',
+    'pricing.feature.banking': 'Introducción bancaria',
+    'pricing.feature.kit': 'Kit corporativo digital',
+    'pricing.feature.resolution': 'Resolución corporativa',
+    'pricing.feature.bank_resolution': 'Resolución de cuenta bancaria',
 
-    'pricing.tag.popular': 'Más Popular',
-    'pricing.tag.investor': 'Amigable para Inversores',
-    'pricing.tag.value': 'Mejor Valor',
-    'pricing.tag.sunshine': 'Estado del Sol',
-    'pricing.tag.lonestar': 'Estado de la Estrella Solitaria',
+    'pricing.tag.popular': 'Más popular',
+    'pricing.tag.investor': 'Amigable para inversores',
+    'pricing.tag.value': 'Mejor valor',
+    'pricing.tag.sunshine': 'Estado del sol',
+    'pricing.tag.lonestar': 'Estado de la estrella solitaria',
 
     'pricing.sub.wyoming': 'Privacidad y Tarifas Bajas. Ideal para No Residentes.',
     'pricing.sub.delaware': 'Estándar en Ley Corporativa. Ideal para Startups.',

@@ -4,6 +4,8 @@ import LLCFormation from './pages/LLCFormation';
 import BankingSupport from './pages/BankingSupport';
 import EINRegistration from './pages/EINRegistration';
 import Legal from './pages/Legal';
+import Payment from './pages/Payment';
+import Register from './pages/Register';
 
 function App() {
   return (
@@ -13,6 +15,8 @@ function App() {
         <Route path="/llc-formation" element={<LLCFormation />} />
         <Route path="/banking-support" element={<BankingSupport />} />
         <Route path="/ein-registration" element={<EINRegistration />} />
+        <Route path="/payment" element={<Payment />} />
+        <Route path="/register" element={<Register />} />
         <Route path="/:type" element={<Legal />} />
         {/* Redirect unknown routes to home */}
         <Route path="*" element={<Home />} />
