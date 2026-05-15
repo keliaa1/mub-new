@@ -137,10 +137,10 @@ const translations: Record<Language, Record<string, string>> = {
     'why.ein_desc': 'Direct IRS filing in record time.',
     'why.compliance': 'Legal compliance',
     'why.compliance_desc': 'Registered Agent & Annual Filings.',
-    'why.time1': 'Just now',
-    'why.time2': '2m ago',
-    'why.time3': '5m ago',
-    'why.time4': '10m ago',
+    'why.time1': '',
+    'why.time2': '',
+    'why.time3': '',
+    'why.time4': '',
 
     // Pricing
     'pricing.title_main': 'Transparent offshore solutions.',
@@ -210,7 +210,7 @@ const translations: Record<Language, Record<string, string>> = {
     'quick.online_desc': 'Acceso al panel 24/7 para administrar su cumplimiento y documentos legales.',
 
     // Testimonials ES
-    'test.title': 'De Confianza para Fundadores de Todo el Mundo',
+    'test.title': 'Experiencias positivas y continuidad',
     'test.subtitle': 'Testimonios',
     'test.review1': 'Iniciar un negocio en EE. UU. desde Colombia parecía imposible hasta que encontré My USA Business. El proceso fue fluido e increíblemente rápido.',
     'test.review2': 'La adquisición del EIN y el apoyo bancario fueron salvavidas. Muy recomendable para cualquier fundador internacional que ingrese al mercado estadounidense.',
@@ -235,7 +235,7 @@ const translations: Record<Language, Record<string, string>> = {
 
     // Footer
     'footer.headquarters': 'Presencia en todo el país.',
-    'footer.miami_desc': 'Ubicación central en el corazón del distrito financiero de Miami. Centro de operaciones y sede.',
+    'footer.miami_desc': 'Centro de operaciones ubicado en el corazón del distrito financiero de Miami.',
     'footer.vegas_desc': 'Nuestra sede de Las Vegas brinda soporte operativo y procesos internos de KYC.',
     'footer.panama_desc': 'Nuestro centro de Panamá en Oceania Business Plaza sirve como nuestro puente estratégico para los fundadores latinoamericanos.',
     'footer.description': 'Empoderando a emprendedores internacionales para lanzar y administrar negocios exitosos en los Estados Unidos. Su socio global en formación corporativa.',
@@ -275,7 +275,7 @@ const translations: Record<Language, Record<string, string>> = {
 
     // Why Choose Us ES
     'why.expertise': 'Nuestra Experiencia',
-    'why.title1': 'Por qué los fundadores eligen',
+    'why.title1': 'Emprendedores y empresas de todo el mundo eligen',
     'why.title2': 'My USA Business',
     'why.trust_title': 'Asociaciones de Confianza',
     'why.trust_desc': 'Hemos ayudado a más de 5000 fundadores de más de 120 países a lanzar con éxito su sueño americano.',
@@ -283,18 +283,18 @@ const translations: Record<Language, Record<string, string>> = {
     'why.guidance': 'Orientación experta',
     'why.guidance_desc': 'Asesoría empresarial personalizada en EE. UU.',
     'why.remote': '100% Remoto',
-    'why.remote_desc': 'No se requiere viajar a EE. UU.',
+    'why.remote_desc': 'No se requiere visa ni viajar a Estados Unidos',
     'why.ein': 'Configuración rápida de EIN',
     'why.ein_desc': 'Presentación directa al IRS en tiempo récord.',
     'why.compliance': 'Cumplimiento legal',
     'why.compliance_desc': 'Agente Registrado y Presentaciones Anuales.',
-    'why.time1': 'Justo ahora',
-    'why.time2': 'hace 2 min',
-    'why.time3': 'hace 5 min',
-    'why.time4': 'hace 10 min',
+    'why.time1': '',
+    'why.time2': '',
+    'why.time3': '',
+    'why.time4': '',
 
     // Pricing ES
-    'pricing.title_main': 'Soluciones offshore transparentes.',
+    'pricing.title_main': 'Soluciones empresariales transparentes.',
     'pricing.desc': 'Seleccione un estado para ver los costos exactos de formación y los servicios incluidos. Creemos en cero tarifas ocultas y claridad absoluta.',
     'pricing.state_selector': 'Estado de Formación',
     'pricing.features_title': 'Características Incluidas',

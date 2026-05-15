@@ -15,8 +15,12 @@ const Notification = ({ name, description, icon, color, time }: any) => {
       <div className="flex flex-col overflow-hidden">
         <div className="flex flex-row items-center whitespace-pre text-lg font-medium dark:text-white text-slate-900">
           <span className="text-sm sm:text-base">{name}</span>
-          <span className="mx-1">·</span>
-          <span className="text-xs dark:text-gray-500 text-slate-500">{time}</span>
+          {time && (
+            <>
+              <span className="mx-1">·</span>
+              <span className="text-xs dark:text-gray-500 text-slate-500">{time}</span>
+            </>
+          )}
         </div>
         <p className="text-xs sm:text-sm dark:text-gray-400 text-slate-600">
           {description}
